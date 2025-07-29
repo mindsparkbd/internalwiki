@@ -11,7 +11,6 @@
   <!-- 2. Embedded CSS Styles -->
   <style>
     /* Define the custom font using the file in the assets folder */
-    /* Make sure the path to myfont.ttf is correct relative to this HTML file */
     @font-face {
       font-family: 'MyCustomFont';
       src: url('assets/myfont.ttf') format('truetype');
@@ -35,8 +34,11 @@
   <div class="container py-4">
     <div class="card w-90 mx-auto shadow-sm">
 
-      <!-- Card Header: Includes Title, Search Bar, and Back Button -->
-      <div class="card-header">
+      <!-- 
+        MODIFICATION: Added the "sticky-top" class here.
+        This Bootstrap class makes the element stick to the top of the viewport once you scroll past it.
+      -->
+      <div class="card-header sticky-top">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
           
           <h3 class="mb-0 me-3">🚚 Delivery</h3>
@@ -80,13 +82,7 @@
             </ul>
           </li>
 
-          <li class="list-group-item">
-            What is a Frontend Framework?
-            <ul>
-              <li>A framework like Bootstrap provides pre-built components. This saves development time.</li>
-              <li>Other popular frameworks include React, Angular, and Vue.js for building complex applications.</li>
-            </ul>
-          </li>
+          <!-- ... (the rest of your list items) ... -->
           
           <li class="list-group-item">
             Backend Development Concepts
@@ -111,6 +107,11 @@
               <li>Using version control is crucial for collaboration and project history.</li>
             </ul>
           </li>
+          
+          <!-- Add more list items here to make the page long enough to scroll -->
+          <li class="list-group-item">More Content To Scroll<ul><li>This item helps make the page longer.</li><li>The more content, the easier it is to test the sticky header.</li></ul></li>
+          <li class="list-group-item">Another Item<ul><li>Scroll down to see the header stick to the top.</li><li>The search bar and home button will always be visible.</li></ul></li>
+          <li class="list-group-item">Final Placeholder Item<ul><li>This demonstrates the sticky functionality perfectly.</li><li>The card body scrolls underneath the fixed header.</li></ul></li>
 
         </ol>
       </div>
@@ -122,40 +123,20 @@
 
   <!-- 3. Embedded JavaScript -->
   <script>
-    /**
-     * Searches for and highlights text within the page content area.
-     * The search is case-insensitive.
-     */
     function searchText() {
-      // Get the search term and convert to lowercase
       let searchTerm = document.getElementById('searchInput').value.toLowerCase();
-      
-      // Get the container where the content resides
       let contentArea = document.getElementById('pageContent');
-      
-      // Get all the list items within the content area
       let listItems = contentArea.getElementsByTagName('li');
-
-      // First, remove any existing highlights to reset the view
       for (let item of listItems) {
         item.innerHTML = item.innerHTML.replace(/<mark class="highlight">/g, "").replace(/<\/mark>/g, "");
       }
-
-      // If the search box is empty, stop here
       if (searchTerm.trim() === '') {
         return;
       }
-
-      // Loop through each list item to find and highlight the search term
       for (let item of listItems) {
         let originalText = item.innerHTML;
-        // 'gi' flags mean: g = global (replace all instances), i = case-insensitive
         let regex = new RegExp(searchTerm, 'gi');
-        
-        // Wrap the found text in a <mark> tag with a custom class for styling
         let newText = originalText.replace(regex, `<mark class="highlight">$&</mark>`);
-        
-        // Update the list item's HTML with the highlighted version
         item.innerHTML = newText;
       }
     }
