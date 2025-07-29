@@ -28,11 +28,6 @@
         <h3>Quick Links</h3>
       </div>
       <div class="card-body">
-        
-        <!--
-          Buttons have been changed from "btn-primary" to "btn-outline-secondary"
-          to match the style of the "Back to Home" button.
-        -->
         <div class="d-grid gap-3">
           <a href="page1.html" class="btn btn-outline-secondary">🚚 Delivery</a>
           <a href="page2.html" class="btn btn-outline-secondary">📞 Customer Service</a>
@@ -45,9 +40,47 @@
       </div>
     </div>
 
+    <!-- 
+      NEW: Attention Button Section 
+      - 'text-center' centers the button.
+      - 'my-4' adds some space above and below it.
+      - 'data-bs-toggle="modal"' tells Bootstrap this button should open a modal.
+      - 'data-bs-target="#attentionModal"' specifies WHICH modal to open.
+    -->
+    <div class="text-center my-4">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#attentionModal">
+        ATTENTION
+      </button>
+    </div>
+
   </div>
 
+  <!-- 
+    NEW: Bootstrap Modal
+    - This is the popup window, which is hidden by default.
+    - The ID "attentionModal" matches the 'data-bs-target' from the button above.
+  -->
+  <div class="modal fade" id="attentionModal" tabindex="-1" aria-labelledby="attentionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="attentionModalLabel">Important Notice</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- 3. Bootstrap JavaScript Bundle (includes Popper.js) -->
+  <!-- This script is what makes the modal functionality work -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
