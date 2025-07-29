@@ -3,144 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Title</title>
+  <title>Page Template with Search</title>
 
-  <!-- 1. Bootstrap CSS from a CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-  <!-- 2. Link to your custom stylesheet for consistent font -->
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Link to your custom stylesheet -->
   <link rel="stylesheet" href="assets/style.css">
-
 </head>
 <body>
 
-  <!-- Main container -->
   <div class="container py-4">
-
-    <!-- A single card taking 90% of the screen width -->
-    <!-- 'w-90' sets the width, 'mx-auto' centers it horizontally -->
     <div class="card w-90 mx-auto shadow-sm">
 
-      <!-- Card Heading Section -->
-      <div class="card-header d-flex justify-content-between align-items-center">
-        <h3 class="mb-0">Main Topic Heading</h3>
-        <a href="index.html" class="btn btn-outline-secondary">← Back to Home</a>
+      <!-- Card Header: Includes Title, Search Bar, and Back Button -->
+      <div class="card-header">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          
+          <!-- Page Title -->
+          <h3 class="mb-0 me-3">Technology and Web Development</h3>
+          
+          <!-- Search Form -->
+          <div class="d-flex ms-auto">
+            <input type="text" id="searchInput" class="form-control me-2" placeholder="Search content...">
+            <button class="btn btn-primary" onclick="searchText()">Search</button>
+          </div>
+          
+          <!-- Back Button -->
+          <a href="index.html" class="btn btn-outline-secondary">← Home</a>
+
+        </div>
       </div>
 
-      <!-- Card Body for the content -->
-      <div class="card-body">
+      <!-- Card Body: This is the area where the search will be performed -->
+      <div class="card-body" id="pageContent">
         
-        <!-- Ordered List (numbered) -->
         <ol class="list-group list-group-flush">
 
           <!-- List Item 1 -->
           <li class="list-group-item">
-            Main Point Number 1
-            <!-- Unordered List (bullet points) nested inside -->
+            Introduction to HTML
             <ul>
-              <li>Sub-point A for item 1.</li>
-              <li>Sub-point B for item 1.</li>
+              <li>HTML stands for HyperText Markup Language. It is the standard for creating web pages.</li>
+              <li>Learning the basic structure of HTML is the first step in web development.</li>
             </ul>
           </li>
 
           <!-- List Item 2 -->
           <li class="list-group-item">
-            Main Point Number 2
+            Styling with CSS
             <ul>
-              <li>Sub-point A for item 2.</li>
-              <li>Sub-point B for item 2.</li>
+              <li>CSS (Cascading Style Sheets) is used to style and layout web pages.</li>
+              <li>You can style elements with colors, fonts, and positioning. This page uses the Bootstrap framework for styling.</li>
             </ul>
           </li>
 
           <!-- List Item 3 -->
           <li class="list-group-item">
-            Main Point Number 3
+            JavaScript Fundamentals
             <ul>
-              <li>Sub-point A for item 3.</li>
-              <li>Sub-point B for item 3.</li>
+              <li>JavaScript makes web pages interactive. Our search functionality is a great example of JavaScript in action.</li>
+              <li>It can manipulate the DOM (Document Object Model). For instance, it can add a yellow highlight to text.</li>
             </ul>
           </li>
 
           <!-- List Item 4 -->
           <li class="list-group-item">
-            Main Point Number 4
+            What is a Frontend Framework?
             <ul>
-              <li>Sub-point A for item 4.</li>
-              <li>Sub-point B for item 4.</li>
+              <li>A framework like Bootstrap provides pre-built components. This saves development time.</li>
+              <li>Other popular frameworks include React, Angular, and Vue.js for building complex applications.</li>
             </ul>
           </li>
           
           <!-- List Item 5 -->
           <li class="list-group-item">
-            Main Point Number 5
+            Backend Development Concepts
             <ul>
-              <li>Sub-point A for item 5.</li>
-              <li>Sub-point B for item 5.</li>
+              <li>The backend handles server-side logic, databases, and authentication.</li>
+              <li>Common backend languages are Node.js, Python, and Java. These process data.</li>
             </ul>
           </li>
 
-          <!-- ... continue this pattern for all 20 items ... -->
-
           <!-- List Item 6 -->
-          <li class="list-group-item">Main Point Number 6<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
+          <li class="list-group-item">
+            Databases and Data Storage
+            <ul>
+              <li>SQL databases like MySQL are relational. Data is stored in tables.</li>
+              <li>NoSQL databases like MongoDB are non-relational and store data in documents.</li>
+            </ul>
+          </li>
           
           <!-- List Item 7 -->
-          <li class="list-group-item">Main Point Number 7<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 8 -->
-          <li class="list-group-item">Main Point Number 8<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 9 -->
-          <li class="list-group-item">Main Point Number 9<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 10 -->
-          <li class="list-group-item">Main Point Number 10<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 11 -->
-          <li class="list-group-item">Main Point Number 11<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 12 -->
-          <li class="list-group-item">Main Point Number 12<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 13 -->
-          <li class="list-group-item">Main Point Number 13<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 14 -->
-          <li class="list-group-item">Main Point Number 14<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 15 -->
-          <li class="list-group-item">Main Point Number 15<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 16 -->
-          <li class="list-group-item">Main Point Number 16<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 17 -->
-          <li class="list-group-item">Main Point Number 17<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 18 -->
-          <li class="list-group-item">Main Point Number 18<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 19 -->
-          <li class="list-group-item">Main Point Number 19<ul><li>Sub-point A</li><li>Sub-point B</li></ul></li>
-
-          <!-- List Item 20 -->
           <li class="list-group-item">
-            Main Point Number 20
+            Version Control with Git
             <ul>
-              <li>Sub-point A for item 20.</li>
-              <li>Sub-point B for item 20.</li>
+              <li>Git is a system for tracking changes in code. GitHub is a platform for hosting Git repositories.</li>
+              <li>Using version control is crucial for collaboration and project history.</li>
             </ul>
           </li>
 
         </ol>
-
       </div>
     </div>
-
   </div>
 
-  <!-- 3. Bootstrap JavaScript Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Link to your custom search script -->
+  <script src="js/search.js"></script>
 
 </body>
 </html>
