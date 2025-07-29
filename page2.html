@@ -3,61 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage</title>
+  <title>📞 Customer Service</title>
 
   <!-- 1. Bootstrap CSS from a CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- 2. Embedded CSS Styles -->
+  <style>
+    /* Define the custom font using the file in the assets folder */
+    @font-face {
+      font-family: 'MyCustomFont';
+      src: url('assets/myfont.ttf') format('truetype');
+    }
 
-  <!-- 2. Link to your custom stylesheet -->
-  <link rel="stylesheet" href="assets/style.css">
+    /* Apply the custom font to the body of the page */
+    body {
+      font-family: 'MyCustomFont', sans-serif;
+      background-color: #f8f9fa;
+    }
 
+    /* Style for the highlighted search results */
+    .highlight {
+      background-color: yellow;
+      color: black;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Main container for all content -->
-  <div class="container">
+  <div class="container py-4">
+    <div class="card w-90 mx-auto shadow-sm">
 
-    <!-- Logo Section -->
-    <!-- 'text-center' centers the image, 'my-4' adds margin on the top and bottom -->
-    <div class="text-center my-4">
-      <img src="assets/logo.png" alt="Company Logo" style="width: 600px; height: 150px;">
-    </div>
+      <!-- 
+        MODIFICATION: Added the "sticky-top" class here.
+        This Bootstrap class makes the element stick to the top of the viewport once you scroll past it.
+      -->
+      <div class="card-header sticky-top" style="background-color: white;">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          
+          <h3 class="mb-0 me-3">📞 Customer Service</h3>
+          
+          <div class="d-flex ms-auto">
+            <input type="text" id="searchInput" class="form-control me-2" placeholder="Search content...">
+            <button class="btn btn-primary" onclick="searchText()">Search</button>
+          </div>
+          
+          <a href="index.html" class="btn btn-outline-secondary">← Home</a>
 
-    <!-- Card with Hyperlinked Buttons -->
-    <!-- 
-      'mx-auto' centers the card horizontally.
-      'shadow-sm' adds a subtle shadow for a lifting effect.
-      'style="max-width: 500px;"' prevents the card from becoming too wide on large screens.
-    -->
-    <div class="card mx-auto shadow-sm" style="max-width: 500px;">
-      <div class="card-header text-center">
-        <h3>Quick Links</h3>
-      </div>
-      <div class="card-body">
-        <!-- 
-          'd-grid' makes child elements (the buttons) span the full width.
-          'gap-2' adds a small space between the buttons.
-        -->
-
-
-        
-        <div class="d-grid gap-3">
-          <a href="page1.html" class="btn btn-primary">🚚 Delivery</a>
-          <a href="page2.html" class="btn btn-primary">📞 Customer Service</a>
-          <a href="page3.html" class="btn btn-primary">🧸 Product & Packaging</a>
-          <a href="page4.html" class="btn btn-primary">🧑‍🏫 Training & Onboarding</a>
-          <a href="page5.html" class="btn btn-primary">📦 Inventory</a>
-          <a href="page6.html" class="btn btn-primary">💻 Tech & Website Support</a>
-          <a href="page7.html" class="btn btn-primary">🔍 FAQ</a>
         </div>
       </div>
-    </div>
 
+      <!-- Card Body: This is the area where the search will be performed -->
+      <div class="card-body" id="pageContent">
+        
+        <ol class="list-group list-group-flush">
+
+          <li class="list-group-item">
+            Introduction to HTML
+            <ul>
+              <li>HTML stands for HyperText Markup Language. It is the standard for creating web pages.</li>
+              <li>Learning the basic structure of HTML is the first step in web development.</li>
+            </ul>
+          </li>
+
+          <li class="list-group-item">
+            Styling with CSS
+            <ul>
+              <li>CSS (Cascading Style Sheets) is used to style and layout web pages.</li>
+              <li>You can style elements with colors, fonts, and positioning. This page uses the Bootstrap framework for styling.</li>
+            </ul>
+          </li>
+
+          <li class="list-group-item">
+            JavaScript Fundamentals
+            <ul>
+              <li>JavaScript makes web pages interactive. Our search functionality is a great example of JavaScript in action.</li>
+              <li>It can manipulate the DOM (Document Object Model). For instance, it can add a yellow highlight to text.</li>
+            </ul>
+          </li>
+
+          <!-- ... (the rest of your list items) ... -->
+          
+          <li class="list-group-item">
+            Backend Development Concepts
+            <ul>
+              <li>The backend handles server-side logic, databases, and authentication.</li>
+              <li>Common backend languages are Node.js, Python, and Java. These process data.</li>
+            </ul>
+          </li>
+
+          <li class="list-group-item">
+            Databases and Data Storage
+            <ul>
+              <li>SQL databases like MySQL are relational. Data is stored in tables.</li>
+              <li>NoSQL databases like MongoDB are non-relational and store data in documents.</li>
+            </ul>
+          </li>
+          
+          <li class="list-group-item">
+            Version Control with Git
+            <ul>
+              <li>Git is a system for tracking changes in code. GitHub is a platform for hosting Git repositories.</li>
+              <li>Using version control is crucial for collaboration and project history.</li>
+            </ul>
+          </li>
+          
+          <!-- Add more list items here to make the page long enough to scroll -->
+          <li class="list-group-item">More Content To Scroll<ul><li>This item helps make the page longer.</li><li>The more content, the easier it is to test the sticky header.</li></ul></li>
+          <li class="list-group-item">Another Item<ul><li>Scroll down to see the header stick to the top.</li><li>The search bar and home button will always be visible.</li></ul></li>
+          <li class="list-group-item">Final Placeholder Item<ul><li>This demonstrates the sticky functionality perfectly.</li><li>The card body scrolls underneath the fixed header.</li></ul></li>
+
+        </ol>
+      </div>
+    </div>
   </div>
 
-  <!-- 3. Bootstrap JavaScript Bundle (includes Popper.js) -->
-  <!-- This is placed at the end of the body for faster page loading -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 3. Embedded JavaScript -->
+  <script>
+    function searchText() {
+      let searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      let contentArea = document.getElementById('pageContent');
+      let listItems = contentArea.getElementsByTagName('li');
+      for (let item of listItems) {
+        item.innerHTML = item.innerHTML.replace(/<mark class="highlight">/g, "").replace(/<\/mark>/g, "");
+      }
+      if (searchTerm.trim() === '') {
+        return;
+      }
+      for (let item of listItems) {
+        let originalText = item.innerHTML;
+        let regex = new RegExp(searchTerm, 'gi');
+        let newText = originalText.replace(regex, `<mark class="highlight">$&</mark>`);
+        item.innerHTML = newText;
+      }
+    }
+  </script>
 
 </body>
 </html>
