@@ -3,143 +3,258 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🚚 Delivery</title>
-
-  <!-- 1. Bootstrap CSS from a CDN -->
+  <title data-i18n="page-title">🚚 Delivery</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- 2. Embedded CSS Styles -->
   <style>
-    /* Define the custom font using the file in the assets folder */
     @font-face {
       font-family: 'MyCustomFont';
       src: url('assets/myfont.ttf') format('truetype');
+      font-display: swap;
     }
-
-    /* Apply the custom font to the body of the page */
     body {
       font-family: 'MyCustomFont', sans-serif;
       background-color: #f8f9fa;
     }
-
-    /* Style for the highlighted search results */
     .highlight {
       background-color: yellow;
       color: black;
     }
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .lang-toggle button {
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
+  <!-- Language Toggle Button -->
+  <div class="lang-toggle">
+    <button id="langToggle" class="btn btn-outline-primary btn-sm">
+      <span class="lang-current">EN</span> | <span class="lang-other">BN</span>
+    </button>
+  </div>
 
   <div class="container py-4">
     <div class="card w-90 mx-auto shadow-sm">
-
-      <!-- 
-        MODIFICATION: Added the "sticky-top" class here.
-        This Bootstrap class makes the element stick to the top of the viewport once you scroll past it.
-      -->
       <div class="card-header sticky-top" style="background-color: white;">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-          
-          <h3 class="mb-0 me-3">🚚 Delivery</h3>
+          <h3 class="mb-0 me-3" data-i18n="delivery-title">🚚 Delivery</h3>
           
           <div class="d-flex ms-auto">
-            <input type="text" id="searchInput" class="form-control me-2" placeholder="Search content...">
-            <button class="btn btn-primary" onclick="searchText()">Search</button>
+            <input type="text" id="searchInput" class="form-control me-2" data-i18n-placeholder="search-placeholder" placeholder="Search content...">
+            <button class="btn btn-primary" onclick="searchText()" data-i18n="search-button">Search</button>
           </div>
           
-          <a href="index.html" class="btn btn-outline-secondary">← Home</a>
-
+          <a href="index.html" class="btn btn-outline-secondary" data-i18n="home-button">← Home</a>
         </div>
       </div>
-
-      <!-- Card Body: This is the area where the search will be performed -->
-           <!-- Card Body: This is the area where the search will be performed -->
+      
       <div class="card-body" id="pageContent">
-        
         <ol class="list-group list-group-flush">
-
           <li class="list-group-item">
-            Order Cut-off Time
+            <span data-i18n="section1-title">Order Cut-off Time</span>
             <ul>
-              <li>Orders received before 5:00 PM are dispatched on the same day.</li>
-              <li>Orders received after 5:00 PM will be treated as next day’s orders.</li>
+              <li data-i18n="section1-item1">Orders received before 5:00 PM are dispatched on the same day.</li>
+              <li data-i18n="section1-item2">Orders received after 5:00 PM will be treated as next day's orders.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Delivery Timeline
+            <span data-i18n="section2-title">Delivery Timeline</span>
             <ul>
-              <li>Usually, delivery inside Dhaka Metro occurs the next day.</li>
-              <li>Delivery outside Dhaka typically takes 2–3 days.</li>
+              <li data-i18n="section2-item1">Usually, delivery inside Dhaka Metro occurs the next day.</li>
+              <li data-i18n="section2-item2">Delivery outside Dhaka typically takes 2–3 days.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Courier Pickup Exception
+            <span data-i18n="section3-title">Courier Pickup Exception</span>
             <ul>
-              <li>If the courier pickup is delayed, some late orders may still be dispatched on the same day, but this is not guaranteed unless approved by management.</li>
+              <li data-i18n="section3-item1">If the courier pickup is delayed, some late orders may still be dispatched on the same day, but this is not guaranteed unless approved by management.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Same Day Delivery (Dhaka Metro Only)
+            <span data-i18n="section4-title">Same Day Delivery (Dhaka Metro Only)</span>
             <ul>
-              <li>Same day delivery is available upon customer request and requires management approval.</li>
-              <li>Delivery will be made via PATHAO or UBER Express Delivery.</li>
-              <li>Delivery charge is determined by the carrier.</li>
+              <li data-i18n="section4-item1">Same day delivery is available upon customer request and requires management approval.</li>
+              <li data-i18n="section4-item2">Delivery will be made via PATHAO or UBER Express Delivery.</li>
+              <li data-i18n="section4-item3">Delivery charge is determined by the carrier.</li>
             </ul>
           </li>
           
           <li class="list-group-item">
-            Payment for Express Delivery
+            <span data-i18n="section5-title">Payment for Express Delivery</span>
             <ul>
-              <li>For same-day express delivery, the full product amount must be paid in advance.</li>
-              <li>We will dispatch only after receiving full payment.</li>
-              <li>The customer pays the express delivery charge directly to the carrier.</li>
+              <li data-i18n="section5-item1">For same-day express delivery, the full product amount must be paid in advance.</li>
+              <li data-i18n="section5-item2">We will dispatch only after receiving full payment.</li>
+              <li data-i18n="section5-item3">The customer pays the express delivery charge directly to the carrier.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Regular Delivery Charges
+            <span data-i18n="section6-title">Regular Delivery Charges</span>
             <ul>
-              <li>Inside Dhaka Metro: ৳70</li>
-              <li>Outside Dhaka Metro: ৳130</li>
+              <li data-i18n="section6-item1">Inside Dhaka Metro: ৳70</li>
+              <li data-i18n="section6-item2">Outside Dhaka Metro: ৳130</li>
             </ul>
           </li>
           
           <li class="list-group-item">
-            Return Policy (General Dislike)
+            <span data-i18n="section7-title">Return Policy (General Dislike)</span>
             <ul>
-              <li>Customers may return a product if they don’t like it, but the delivery charge is non-refundable and must be borne by the customer.</li>
+              <li data-i18n="section7-item1">Customers may return a product if they don't like it, but the delivery charge is non-refundable and must be borne by the customer.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Return Policy (Faulty/Damaged/Missing Items)
+            <span data-i18n="section8-title">Return Policy (Faulty/Damaged/Missing Items)</span>
             <ul>
-              <li>For broken, faulty, or missing items, Mindspark offers a 100% refund or a free replacement.</li>
+              <li data-i18n="section8-item1">For broken, faulty, or missing items, Mindspark offers a 100% refund or a free replacement.</li>
             </ul>
           </li>
-
         </ol>
       </div>
+    </div>
+  </div>
 
-  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- 3. Embedded JavaScript -->
+  
   <script>
+    // Translation data
+    const translations = {
+      en: {
+        "page-title": "🚚 Delivery",
+        "delivery-title": "🚚 Delivery",
+        "search-placeholder": "Search content...",
+        "search-button": "Search",
+        "home-button": "← Home",
+        "section1-title": "Order Cut-off Time",
+        "section1-item1": "Orders received before 5:00 PM are dispatched on the same day.",
+        "section1-item2": "Orders received after 5:00 PM will be treated as next day's orders.",
+        "section2-title": "Delivery Timeline",
+        "section2-item1": "Usually, delivery inside Dhaka Metro occurs the next day.",
+        "section2-item2": "Delivery outside Dhaka typically takes 2–3 days.",
+        "section3-title": "Courier Pickup Exception",
+        "section3-item1": "If the courier pickup is delayed, some late orders may still be dispatched on the same day, but this is not guaranteed unless approved by management.",
+        "section4-title": "Same Day Delivery (Dhaka Metro Only)",
+        "section4-item1": "Same day delivery is available upon customer request and requires management approval.",
+        "section4-item2": "Delivery will be made via PATHAO or UBER Express Delivery.",
+        "section4-item3": "Delivery charge is determined by the carrier.",
+        "section5-title": "Payment for Express Delivery",
+        "section5-item1": "For same-day express delivery, the full product amount must be paid in advance.",
+        "section5-item2": "We will dispatch only after receiving full payment.",
+        "section5-item3": "The customer pays the express delivery charge directly to the carrier.",
+        "section6-title": "Regular Delivery Charges",
+        "section6-item1": "Inside Dhaka Metro: ৳70",
+        "section6-item2": "Outside Dhaka Metro: ৳130",
+        "section7-title": "Return Policy (General Dislike)",
+        "section7-item1": "Customers may return a product if they don't like it, but the delivery charge is non-refundable and must be borne by the customer.",
+        "section8-title": "Return Policy (Faulty/Damaged/Missing Items)",
+        "section8-item1": "For broken, faulty, or missing items, Mindspark offers a 100% refund or a free replacement."
+      },
+      bn: {
+        "page-title": "🚚 ডেলিভারি",
+        "delivery-title": "🚚 ডেলিভারি",
+        "search-placeholder": "কন্টেন্ট অনুসন্ধান করুন...",
+        "search-button": "অনুসন্ধান",
+        "home-button": "← হোম",
+        "section1-title": "অর্ডার কাট-অফ সময়",
+        "section1-item1": "বিকাল ৫:০০ টার আগে প্রাপ্ত অর্ডারগুলি একই দিনে প্রেরণ করা হয়।",
+        "section1-item2": "বিকাল ৫:০০ টার পরে প্রাপ্ত অর্ডারগুলি পরবর্তী দিনের অর্ডার হিসাবে বিবেচিত হবে।",
+        "section2-title": "ডেলিভারি সময়সীমা",
+        "section2-item1": "সাধারণত, ঢাকা মেট্রোর ভিতরে ডেলিভারি পরদিন হয়।",
+        "section2-item2": "ঢাকার বাইরে ডেলিভারিতে সাধারণত ২-৩ দিন সময় লাগে।",
+        "section3-title": "কুরিয়ার পিকআপ ব্যতিক্রম",
+        "section3-item1": "যদি কুরিয়ার পিকআপ বিলম্বিত হয়, কিছু দেরী অর্ডার এখনও একই দিনে প্রেরণ করা হতে পারে, তবে এটি নিশ্চিত নয় যদি না ব্যবস্থাপনা দ্বারা অনুমোদিত হয়।",
+        "section4-title": "একই দিনে ডেলিভারি (শুধুমাত্র ঢাকা মেট্রো)",
+        "section4-item1": "গ্রাহকের অনুরোধের ভিত্তিতে একই দিনে ডেলিভারি পাওয়া যায় এবং এর জন্য ব্যবস্থাপনার অনুমোদন প্রয়োজন।",
+        "section4-item2": "ডেলিভারি PATHAO বা UBER এক্সপ্রেস ডেলিভারির মাধ্যমে করা হবে।",
+        "section4-item3": "ডেলিভারি চার্জ ক্যারিয়ার দ্বারা নির্ধারিত হয়।",
+        "section5-title": "এক্সপ্রেস ডেলিভারির জন্য পেমেন্ট",
+        "section5-item1": "একই দিনের এক্সপ্রেস ডেলিভারির জন্য, সম্পূর্ণ পণ্যের পরিমাণ অগ্রিম পরিশোধ করতে হবে।",
+        "section5-item2": "আমরা শুধুমাত্র সম্পূর্ণ পেমেন্ট পাওয়ার পরে প্রেরণ করব।",
+        "section5-item3": "গ্রাহক এক্সপ্রেস ডেলিভারি চার্জ সরাসরি ক্যারিয়ারকে পরিশোধ করেন।",
+        "section6-title": "নিয়মিত ডেলিভারি চার্জ",
+        "section6-item1": "ঢাকা মেট্রোর ভিতরে: ৳৭০",
+        "section6-item2": "ঢাকা মেট্রোর বাইরে: ৳১৩০",
+        "section7-title": "রিটার্ন পলিসি (সাধারণ অপছন্দ)",
+        "section7-item1": "গ্রাহকরা একটি পণ্য ফেরত দিতে পারেন যদি তারা এটি পছন্দ না করেন, কিন্তু ডেলিভারি চার্জ ফেরতযোগ্য নয় এবং গ্রাহককে বহন করতে হবে।",
+        "section8-title": "রিটার্ন পলিসি (ত্রুটিপূর্ণ/ক্ষতিগ্রস্ত/হারানো আইটেম)",
+        "section8-item1": "ভাঙা, ত্রুটিপূর্ণ, বা হারানো আইটেমের জন্য, মাইন্ডস্পার্ক ১০০% রিফান্ড বা বিনামূল্যে প্রতিস্থাপন অফার করে।"
+      }
+    };
+
+    // Language management
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+    const htmlTag = document.documentElement;
+    const langToggle = document.getElementById('langToggle');
+    const langCurrent = langToggle.querySelector('.lang-current');
+    const langOther = langToggle.querySelector('.lang-other');
+
+    // Update page content based on selected language
+    function updateLanguage(lang) {
+      // Update HTML lang attribute
+      htmlTag.setAttribute('lang', lang);
+      
+      // Update page title
+      const pageTitle = document.querySelector('title');
+      const titleKey = pageTitle.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][titleKey]) {
+        pageTitle.textContent = translations[lang][titleKey];
+      }
+      
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          element.placeholder = translations[lang][key];
+        }
+      });
+      
+      // Update toggle button
+      langCurrent.textContent = lang.toUpperCase();
+      langOther.textContent = lang === 'en' ? 'BN' : 'EN';
+      
+      // Store preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // Initialize language
+    updateLanguage(currentLang);
+
+    // Toggle language on button click
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      updateLanguage(currentLang);
+    });
+
+    // Search functionality
     function searchText() {
       let searchTerm = document.getElementById('searchInput').value.toLowerCase();
       let contentArea = document.getElementById('pageContent');
       let listItems = contentArea.getElementsByTagName('li');
+      
+      // Clear previous highlights
       for (let item of listItems) {
         item.innerHTML = item.innerHTML.replace(/<mark class="highlight">/g, "").replace(/<\/mark>/g, "");
       }
+      
       if (searchTerm.trim() === '') {
         return;
       }
+      
+      // Highlight search term
       for (let item of listItems) {
         let originalText = item.innerHTML;
         let regex = new RegExp(searchTerm, 'gi');
@@ -148,6 +263,5 @@
       }
     }
   </script>
-
 </body>
 </html>
