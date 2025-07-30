@@ -60,7 +60,7 @@
       <span class="lang-current">EN</span> | <span class="lang-other">BN</span>
     </button>
   </div>
-
+  
   <div class="container py-4">
     <div class="card w-90 mx-auto shadow-sm">
       <div class="card-header" style="background-color: white;">
@@ -81,7 +81,7 @@
           <li class="list-group-item">
             <span data-i18n="section1-title">Product Pricing Requests</span>
             <ul>
-              <li data-i18n="section1-item1">If a customer asks for the prices of multiple toys or "all toys," politely direct them to the website: <a href="https://mindsparkbd.com/shop/" target="_blank">Mindspark</a></li>
+              <li data-i18n="section1-item1" data-i18n-html="true">If a customer asks for the prices of multiple toys or "all toys," politely direct them to the website: <a href="https://mindsparkbd.com/shop/" target="_blank">Mindspark</a></li>
             </ul>
           </li>
           <li class="list-group-item">
@@ -128,7 +128,7 @@
           <li class="list-group-item">
             <span data-i18n="section8-title">Final Lead Status</span>
             <ul>
-              <li data-i18n="section8-item1">After a confirmed order: Mark as "Converted, Ordered." (<a href="#" target="_blank" style="color: red; text-decoration: underline;" data-i18n="section8-link">See How to do</a>)</li>
+              <li data-i18n="section8-item1" data-i18n-html="true">After a confirmed order: Mark as "Converted, Ordered." (<a href="#" target="_blank" style="color: red; text-decoration: underline;" data-i18n="section8-link">See How to do</a>)</li>
               <li data-i18n="section8-item2">Tag the message with Today's Date under suggested labels.</li>
             </ul>
           </li>
@@ -183,7 +183,7 @@
         "search-button": "Search",
         "home-button": "← Home",
         "section1-title": "Product Pricing Requests",
-        "section1-item1": "If a customer asks for the prices of multiple toys or \"all toys,\" politely direct them to the website: <a href="https://mindsparkbd.com/shop/" target="_blank">Mindspark</a>,
+        "section1-item1": "If a customer asks for the prices of multiple toys or \"all toys,\" politely direct them to the website: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">Mindspark</a>",
         "section2-title": "Lead Qualification",
         "section2-item1": "If a customer asks any questions after getting the price (e.g., color, size, delivery, etc.), mark the lead as \"Qualified.\"",
         "section3-title": "Saved Message Usage",
@@ -225,7 +225,7 @@
         "search-button": "অনুসন্ধান",
         "home-button": "← হোম",
         "section1-title": "পণ্যের মূল্য অনুরোধ",
-        "section1-item1": "যদি কোনো গ্রাহক একাধিক খেলনা বা \"সব খেলনা\" এর দাম জানতে চান, তাদের বিনীতভাবে ওয়েবসাইটে দাম দেখতে অনুরোধ করুন,
+        "section1-item1": "যদি কোনো গ্রাহক একাধিক খেলনা বা \"সব খেলনা\" এর দাম জানতে চান, তাদের বিনীতভাবে ওয়েবসাইটে দাম দেখতে অনুরোধ করুন: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">মাইন্ডস্পার্ক</a>",
         "section2-title": "লিড যোগ্যতা",
         "section2-item1": "যদি কোনো গ্রাহক দাম পাওয়ার পরে কোনো প্রশ্ন করেন (যেমন রঙ, আকার, ডেলিভারি ইত্যাদি), লিডটিকে \"যোগ্য\" হিসাবে চিহ্নিত করুন।",
         "section3-title": "সংরক্ষিত বার্তা ব্যবহার",
@@ -265,63 +265,73 @@
     // Language management
     let currentLang = localStorage.getItem('preferredLanguage') || 'en';
     const htmlTag = document.documentElement;
-    const langToggle = document.getElementById('langToggle');
-    const langCurrent = langToggle.querySelector('.lang-current');
-    const langOther = langToggle.querySelector('.lang-other');
     const bodyTag = document.body;
-
-    // Update page content based on selected language
-    function updateLanguage(lang) {
-      // Update HTML lang attribute
-      htmlTag.setAttribute('lang', lang);
+    
+    // Wait for DOM to be fully loaded before initializing
+    document.addEventListener('DOMContentLoaded', function() {
+      const langToggle = document.getElementById('langToggle');
+      const langCurrent = langToggle.querySelector('.lang-current');
+      const langOther = langToggle.querySelector('.lang-other');
       
-      // Update body class for font switching
-      if (lang === 'bn') {
-        bodyTag.classList.add('lang-bn');
-      } else {
-        bodyTag.classList.remove('lang-bn');
+      // Update page content based on selected language
+      function updateLanguage(lang) {
+        // Update HTML lang attribute
+        htmlTag.setAttribute('lang', lang);
+        
+        // Update body class for font switching
+        if (lang === 'bn') {
+          bodyTag.classList.add('lang-bn');
+        } else {
+          bodyTag.classList.remove('lang-bn');
+        }
+        
+        // Update page title
+        const pageTitle = document.querySelector('title');
+        const titleKey = pageTitle.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][titleKey]) {
+          pageTitle.textContent = translations[lang][titleKey];
+        }
+        
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          const isHtml = element.hasAttribute('data-i18n-html');
+          
+          if (translations[lang] && translations[lang][key]) {
+            if (isHtml) {
+              element.innerHTML = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+        
+        // Update placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const key = element.getAttribute('data-i18n-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+          }
+        });
+        
+        // Update toggle button
+        langCurrent.textContent = lang.toUpperCase();
+        langOther.textContent = lang === 'en' ? 'BN' : 'EN';
+        
+        // Store preference
+        localStorage.setItem('preferredLanguage', lang);
       }
       
-      // Update page title
-      const pageTitle = document.querySelector('title');
-      const titleKey = pageTitle.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][titleKey]) {
-        pageTitle.textContent = translations[lang][titleKey];
-      }
-      
-      // Update all elements with data-i18n attribute
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
-      
-      // Update placeholders
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-        const key = element.getAttribute('data-i18n-placeholder');
-        if (translations[lang] && translations[lang][key]) {
-          element.placeholder = translations[lang][key];
-        }
-      });
-      
-      // Update toggle button
-      langCurrent.textContent = lang.toUpperCase();
-      langOther.textContent = lang === 'en' ? 'BN' : 'EN';
-      
-      // Store preference
-      localStorage.setItem('preferredLanguage', lang);
-    }
-
-    // Initialize language
-    updateLanguage(currentLang);
-
-    // Toggle language on button click
-    langToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      // Initialize language
       updateLanguage(currentLang);
+      
+      // Toggle language on button click
+      langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'bn' : 'en';
+        updateLanguage(currentLang);
+      });
     });
-
+    
     // Search functionality
     function searchText() {
       let searchTerm = document.getElementById('searchInput').value.toLowerCase();
