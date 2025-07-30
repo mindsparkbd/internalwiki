@@ -8,10 +8,6 @@
   <!-- 1. Bootstrap CSS from a CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <!-- 
-    MODIFICATION: The external stylesheet link has been replaced 
-    with the <style> block below.
-  -->
   <style>
     /* Define your custom font by pointing to the file in the assets folder */
     @font-face {
@@ -23,6 +19,11 @@
     /* Apply your custom font to the entire page body */
     body {
       font-family: 'MyCustomFont', sans-serif;
+    }
+
+    /* NEW: Custom style for the version box's dotted border */
+    .version-box {
+      border: 1px dotted #adb5bd; /* A light grey color from Bootstrap's palette */
     }
   </style>
 
@@ -61,6 +62,19 @@
         ATTENTION
       </button>
     </div>
+
+    <!-- 
+      NEW: Version Info Box
+      - 'version-box' is our custom class for the dotted border.
+      - 'bg-light' gives it the light grey background.
+      - 'p-2' adds some padding inside the box.
+      - 'rounded' gives it slightly rounded corners to match the cards.
+      - 'mx-auto' and 'max-width' keep it aligned with the content above.
+    -->
+    <div class="version-box bg-light p-3 rounded mx-auto text-center" style="max-width: 500px;">
+        <p class="mb-0 small">Version: 1.0.1 | Last Updated: 30 July 2025</p>
+    </div>
+
 
   </div>
 
