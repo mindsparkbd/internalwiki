@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -48,6 +48,33 @@
       font-size: 14px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
+    
+    /* Progress bar styles */
+    .progress-container {
+      width: 100%;
+      height: 4px;
+      background-color: #e9ecef;
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #0d6efd;
+      transition: width 0.3s ease;
+    }
+    
+    /* Reading time box styles */
+    .reading-time {
+      display: inline-block;
+      padding: 5px 12px;
+      background-color: #e9ecef;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #495057;
+    }
   </style>
 </head>
 <body>
@@ -64,13 +91,18 @@
             </div>
           </div>
           
-          <div class="d-flex ms-auto">
-            <input type="text" id="searchInput" class="form-control me-2" data-i18n-placeholder="search-placeholder" placeholder="Search content...">
-            <button class="btn btn-primary" onclick="searchText()" data-i18n="search-button">Search</button>
+          <!-- Reading time box replacing the search box -->
+          <div class="reading-time" id="readingTime">
+            <i class="bi bi-clock"></i> <span data-i18n="reading-time-text">~5 min read</span>
           </div>
           
           <a href="index.html" class="btn btn-outline-secondary" data-i18n="home-button">← Home</a>
         </div>
+      </div>
+      
+      <!-- Progress bar container -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
       </div>
       
       <div class="card-body" id="pageContent">
@@ -168,6 +200,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   
   <script>
     // Translation data
@@ -175,8 +208,7 @@
       en: {
         "page-title": "📞 Customer Service",
         "service-title": "📞 Customer Service",
-        "search-placeholder": "Search content...",
-        "search-button": "Search",
+        "reading-time-text": "~5 min read",
         "home-button": "← Home",
         "section1-title": "Product Pricing Requests",
         "section1-item1": "If a customer asks for the prices of multiple toys or \"all toys,\" politely direct them to the website: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">Mindspark</a>",
@@ -217,8 +249,7 @@
       bn: {
         "page-title": "📞 গ্রাহক সেবা",
         "service-title": "📞 গ্রাহক সেবা",
-        "search-placeholder": "কন্টেন্ট অনুসন্ধান করুন...",
-        "search-button": "অনুসন্ধান",
+        "reading-time-text": "~5 মিনিট পড়ুন",
         "home-button": "← হোম",
         "section1-title": "পণ্যের মূল্য অনুরোধ",
         "section1-item1": "যদি কোনো গ্রাহক একাধিক খেলনা বা \"সব খেলনা\" এর দাম জানতে চান, তাদের বিনীতভাবে ওয়েবসাইটে দাম দেখতে অনুরোধ করুন: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">মাইন্ডস্পার্ক</a>",
@@ -257,7 +288,7 @@
         "section13-item3": "গ্রাহককে অনুমানিত ডেলিভারি সময় জানান, এবং তারা যে কোনো অতিরিক্ত সহায়তা বা তথ্য জিজ্ঞাসা করতে পারে তা অফার করুন।"
       }
     };
-
+    
     // Language management
     let currentLang = localStorage.getItem('preferredLanguage') || 'en';
     const htmlTag = document.documentElement;
@@ -302,14 +333,6 @@
           }
         });
         
-        // Update placeholders
-        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-          const key = element.getAttribute('data-i18n-placeholder');
-          if (translations[lang] && translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-          }
-        });
-        
         // Update toggle button
         langCurrent.textContent = lang.toUpperCase();
         langOther.textContent = lang === 'en' ? 'BN' : 'EN';
@@ -328,29 +351,13 @@
       });
     });
     
-    // Search functionality
-    function searchText() {
-      let searchTerm = document.getElementById('searchInput').value.toLowerCase();
-      let contentArea = document.getElementById('pageContent');
-      let listItems = contentArea.getElementsByTagName('li');
-      
-      // Clear previous highlights
-      for (let item of listItems) {
-        item.innerHTML = item.innerHTML.replace(/<mark class="highlight">/g, "").replace(/<\/mark>/g, "");
-      }
-      
-      if (searchTerm.trim() === '') {
-        return;
-      }
-      
-      // Highlight search term
-      for (let item of listItems) {
-        let originalText = item.innerHTML;
-        let regex = new RegExp(searchTerm, 'gi');
-        let newText = originalText.replace(regex, `<mark class="highlight">$&</mark>`);
-        item.innerHTML = newText;
-      }
-    }
+    // Progress bar functionality
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
   </script>
 </body>
 </html>
