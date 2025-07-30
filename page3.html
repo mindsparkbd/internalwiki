@@ -3,168 +3,347 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🧸 Product & Packaging</title>
-
-  <!-- 1. Bootstrap CSS from a CDN -->
+  <title data-i18n="page-title">🧸 Product & Packaging</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
-  <!-- 2. Embedded CSS Styles -->
   <style>
-    /* Define the custom font using the file in the assets folder */
+    /* Define the custom English font */
     @font-face {
       font-family: 'MyCustomFont';
       src: url('assets/myfont.ttf') format('truetype');
+      font-display: swap;
     }
-
-    /* Apply the custom font to the body of the page */
+    
+    /* Define the custom Bengali font */
+    @font-face {
+      font-family: 'MyBengaliFont';
+      src: url('assets/ruhul.ttf') format('truetype');
+      font-display: swap;
+    }
+    
     body {
       font-family: 'MyCustomFont', sans-serif;
       background-color: #f8f9fa;
+      position: relative;
+      padding-top: 60px;
     }
-
-    /* Style for the highlighted search results */
+    
+    /* Apply Bengali font when language is Bengali */
+    body.lang-bn {
+      font-family: 'MyBengaliFont', sans-serif;
+    }
+    
     .highlight {
       background-color: yellow;
       color: black;
     }
+    
+    .lang-toggle {
+      margin-left: 15px;
+    }
+    
+    .lang-toggle button {
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
-
   <div class="container py-4">
     <div class="card w-90 mx-auto shadow-sm">
-
-      <!-- 
-        MODIFICATION: Added the "sticky-top" class here.
-        This Bootstrap class makes the element stick to the top of the viewport once you scroll past it.
-      -->
       <div class="card-header sticky-top" style="background-color: white;">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-          
-          <h3 class="mb-0 me-3">🧸 Product & Packaging</h3>
-          
-          <div class="d-flex ms-auto">
-            <input type="text" id="searchInput" class="form-control me-2" placeholder="Search content...">
-            <button class="btn btn-primary" onclick="searchText()">Search</button>
+          <div class="d-flex align-items-center">
+            <h3 class="mb-0 me-3" data-i18n="product-title">🧸 Product & Packaging</h3>
+            <div class="lang-toggle">
+              <button id="langToggle" class="btn btn-outline-primary btn-sm">
+                <span class="lang-current">EN</span> | <span class="lang-other">BN</span>
+              </button>
+            </div>
           </div>
           
-          <a href="index.html" class="btn btn-outline-secondary">← Home</a>
-
+          <div class="d-flex ms-auto">
+            <input type="text" id="searchInput" class="form-control me-2" data-i18n-placeholder="search-placeholder" placeholder="Search content...">
+            <button class="btn btn-primary" onclick="searchText()" data-i18n="search-button">Search</button>
+          </div>
+          
+          <a href="index.html" class="btn btn-outline-secondary" data-i18n="home-button">← Home</a>
         </div>
       </div>
-
-      <!-- Card Body: This is the area where the search will be performed -->
-      <!-- Card Body: This is the area where the search will be performed -->
+      
       <div class="card-body" id="pageContent">
-        
         <ol class="list-group list-group-flush">
-
           <li class="list-group-item">
-            Product Quality Check (QC)
+            <span data-i18n="section1-title">Product Quality Check (QC)</span>
             <ul>
-              <li>Visually inspect all products before packaging.</li>
-              <li>Check for scratches, broken parts, or defects.</li>
-              <li>Count and verify all components if it's a multi-piece item.</li>
+              <li data-i18n="section1-item1">Visually inspect all products before packaging.</li>
+              <li data-i18n="section1-item2">Check for scratches, broken parts, or defects.</li>
+              <li data-i18n="section1-item3">Count and verify all components if it's a multi-piece item.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Battery-Operated Toys
+            <span data-i18n="section2-title">Battery-Operated Toys</span>
             <ul>
-              <li>Test the toy to ensure it functions.</li>
-              <li>Remove demo batteries and inform the customer if batteries are not included.</li>
+              <li data-i18n="section2-item1">Test the toy to ensure it functions.</li>
+              <li data-i18n="section2-item2">Remove demo batteries and inform the customer if batteries are not included.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Cloth & Plush Toys
+            <span data-i18n="section3-title">Cloth & Plush Toys</span>
             <ul>
-              <li>Ensure clean condition, no loose threads or damage.</li>
-              <li>Fold gently to retain shape before packaging.</li>
+              <li data-i18n="section3-item1">Ensure clean condition, no loose threads or damage.</li>
+              <li data-i18n="section3-item2">Fold gently to retain shape before packaging.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Packaging Materials
+            <span data-i18n="section4-title">Packaging Materials</span>
             <ul>
-              <li>Use bubble wrap or tissue wrap for delicate items.</li>
-              <li>Use zip-lock bags for small toys.</li>
-              <li>Apply branded sticker seals when applicable.</li>
+              <li data-i18n="section4-item1">Use bubble wrap or tissue wrap for delicate items.</li>
+              <li data-i18n="section4-item2">Use zip-lock bags for small toys.</li>
+              <li data-i18n="section4-item3">Apply branded sticker seals when applicable.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Boxing & Sealing
+            <span data-i18n="section5-title">Boxing & Sealing</span>
             <ul>
-              <li>Choose an appropriately sized box — not too loose or too tight.</li>
-              <li>Seal with branded or brown packing tape.</li>
-              <li>Include a Thank You card or Mindspark insert (if available).</li>
+              <li data-i18n="section5-item1">Choose an appropriately sized box — not too loose or too tight.</li>
+              <li data-i18n="section5-item2">Seal with branded or brown packing tape.</li>
+              <li data-i18n="section5-item3">Include a Thank You card or Mindspark insert (if available).</li>
             </ul>
           </li>
           
           <li class="list-group-item">
-            Label Placement
+            <span data-i18n="section6-title">Label Placement</span>
             <ul>
-              <li>Stick the label flatly on the top, avoiding seams or folds.</li>
-              <li>If handwritten, use a black marker and write clearly.</li>
+              <li data-i18n="section6-item1">Stick the label flatly on the top, avoiding seams or folds.</li>
+              <li data-i18n="section6-item2">If handwritten, use a black marker and write clearly.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Label Making Process
+            <span data-i18n="section7-title">Label Making Process</span>
             <ul>
-              <li>Login to the Mindspark website dashboard.</li>
-              <li>Navigate to WooCommerce > Export Orders.</li>
-              <li>Select the date range for the orders you want to process.</li>
-              <li>If needed, input the label range to select specific orders.</li>
-              <li>Download the Excel file.</li>
-              <li>Open the file and set the amount to zero for any Bkash or advance-paid entries.</li>
-              <li>Save the updated Excel file.</li>
-              <li>Open this URL: 🔗 <a href="#" target="_blank">Label Generator (Google Colab)</a></li>
-              <li>Upload the Excel file and generate the labels.</li>
-              <li>Carefully review all labels to ensure accuracy.</li>
-              <li>Double-check the layout, names, and address details.</li>
-              <li>Print the labels.</li>
+              <li data-i18n="section7-item1">Login to the Mindspark website dashboard.</li>
+              <li data-i18n="section7-item2">Navigate to WooCommerce > Export Orders.</li>
+              <li data-i18n="section7-item3">Select the date range for the orders you want to process.</li>
+              <li data-i18n="section7-item4">If needed, input the label range to select specific orders.</li>
+              <li data-i18n="section7-item5">Download the Excel file.</li>
+              <li data-i18n="section7-item6">Open the file and set the amount to zero for any Bkash or advance-paid entries.</li>
+              <li data-i18n="section7-item7">Save the updated Excel file.</li>
+              <li data-i18n="section7-item8">Open this URL: 🔗 <a href="#" target="_blank">Label Generator (Google Colab)</a></li>
+              <li data-i18n="section7-item9">Upload the Excel file and generate the labels.</li>
+              <li data-i18n="section7-item10">Carefully review all labels to ensure accuracy.</li>
+              <li data-i18n="section7-item11">Double-check the layout, names, and address details.</li>
+              <li data-i18n="section7-item12">Print the labels.</li>
             </ul>
           </li>
-
           <li class="list-group-item">
-            Final Checklist Before Dispatch
+            <span data-i18n="section8-title">Final Checklist Before Dispatch</span>
             <ul>
-              <li>Product cleaned and verified</li>
-              <li>Working test done (if needed)</li>
-              <li>All parts checked</li>
-              <li>Proper packaging applied</li>
-              <li>Label attached</li>
-              <li>Package photo taken (if required)</li>
+              <li data-i18n="section8-item1">Product cleaned and verified</li>
+              <li data-i18n="section8-item2">Working test done (if needed)</li>
+              <li data-i18n="section8-item3">All parts checked</li>
+              <li data-i18n="section8-item4">Proper packaging applied</li>
+              <li data-i18n="section8-item5">Label attached</li>
+              <li data-i18n="section8-item6">Package photo taken (if required)</li>
             </ul>
           </li>
-
-          <!-- MODIFIED: Added the 'list-group-item-warning' class to give this item a yellow background -->
-          <li class="list-group-item list-group-item-warning">
+          <li class="list-group-item list-group-item-warning" data-i18n="section9-title">
             Please make an effort to learn and retain product details. We encourage team members to be proactive and use their judgment when responding to queries. Not every small piece of information will be documented on the Mindspark website, Facebook page, or this platform. Your understanding and initiative are essential to serving our customers better.
           </li>
-          
         </ol>
       </div>
+    </div>
+  </div>
 
-
-      
-  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- 3. Embedded JavaScript -->
+  
   <script>
+    // Translation data
+    const translations = {
+      en: {
+        "page-title": "🧸 Product & Packaging",
+        "product-title": "🧸 Product & Packaging",
+        "search-placeholder": "Search content...",
+        "search-button": "Search",
+        "home-button": "← Home",
+        "section1-title": "Product Quality Check (QC)",
+        "section1-item1": "Visually inspect all products before packaging.",
+        "section1-item2": "Check for scratches, broken parts, or defects.",
+        "section1-item3": "Count and verify all components if it's a multi-piece item.",
+        "section2-title": "Battery-Operated Toys",
+        "section2-item1": "Test the toy to ensure it functions.",
+        "section2-item2": "Remove demo batteries and inform the customer if batteries are not included.",
+        "section3-title": "Cloth & Plush Toys",
+        "section3-item1": "Ensure clean condition, no loose threads or damage.",
+        "section3-item2": "Fold gently to retain shape before packaging.",
+        "section4-title": "Packaging Materials",
+        "section4-item1": "Use bubble wrap or tissue wrap for delicate items.",
+        "section4-item2": "Use zip-lock bags for small toys.",
+        "section4-item3": "Apply branded sticker seals when applicable.",
+        "section5-title": "Boxing & Sealing",
+        "section5-item1": "Choose an appropriately sized box — not too loose or too tight.",
+        "section5-item2": "Seal with branded or brown packing tape.",
+        "section5-item3": "Include a Thank You card or Mindspark insert (if available).",
+        "section6-title": "Label Placement",
+        "section6-item1": "Stick the label flatly on the top, avoiding seams or folds.",
+        "section6-item2": "If handwritten, use a black marker and write clearly.",
+        "section7-title": "Label Making Process",
+        "section7-item1": "Login to the Mindspark website dashboard.",
+        "section7-item2": "Navigate to WooCommerce > Export Orders.",
+        "section7-item3": "Select the date range for the orders you want to process.",
+        "section7-item4": "If needed, input the label range to select specific orders.",
+        "section7-item5": "Download the Excel file.",
+        "section7-item6": "Open the file and set the amount to zero for any Bkash or advance-paid entries.",
+        "section7-item7": "Save the updated Excel file.",
+        "section7-item8": "Open this URL: 🔗 <a href=\"#\" target=\"_blank\">Label Generator (Google Colab)</a>",
+        "section7-item9": "Upload the Excel file and generate the labels.",
+        "section7-item10": "Carefully review all labels to ensure accuracy.",
+        "section7-item11": "Double-check the layout, names, and address details.",
+        "section7-item12": "Print the labels.",
+        "section8-title": "Final Checklist Before Dispatch",
+        "section8-item1": "Product cleaned and verified",
+        "section8-item2": "Working test done (if needed)",
+        "section8-item3": "All parts checked",
+        "section8-item4": "Proper packaging applied",
+        "section8-item5": "Label attached",
+        "section8-item6": "Package photo taken (if required)",
+        "section9-title": "Please make an effort to learn and retain product details. We encourage team members to be proactive and use their judgment when responding to queries. Not every small piece of information will be documented on the Mindspark website, Facebook page, or this platform. Your understanding and initiative are essential to serving our customers better."
+      },
+      bn: {
+        "page-title": "🧸 পণ্য ও প্যাকেজিং",
+        "product-title": "🧸 পণ্য ও প্যাকেজিং",
+        "search-placeholder": "কন্টেন্ট অনুসন্ধান করুন...",
+        "search-button": "অনুসন্ধান",
+        "home-button": "← হোম",
+        "section1-title": "পণ্যের মান পরীক্ষা (QC)",
+        "section1-item1": "প্যাকেজিংয়ের আগে সমস্ত পণ্য দৃশ্যত পরিদর্শন করুন।",
+        "section1-item2": "আঁচড়, ভাঙা অংশ বা ত্রুটির জন্য পরীক্ষা করুন।",
+        "section1-item3": "যদি এটি একাধিক অংশের আইটেম হয় তবে সমস্ত উপাদান গণনা এবং যাচাই করুন।",
+        "section2-title": "ব্যাটারি চালিত খেলনা",
+        "section2-item1": "�েলনাটি কাজ করে কিনা তা পরীক্ষা করুন।",
+        "section2-item2": "ডেমো ব্যাটারি সরিয়ে ফেলুন এবং গ্রাহককে জানান যদি ব্যাটারি অন্তর্ভুক্ত না থাকে।",
+        "section3-title": "কাপড় এবং প্লাশ খেলনা",
+        "section3-item1": "পরিষ্কার অবস্থা নিশ্চিত করুন, কোনো ঢিলে সুতা বা ক্ষতি নেই।",
+        "section3-item2": "প্যাকেজিংয়ের আগে আকার ধরে রাখতে সাবধানে ভাঁজুন।",
+        "section4-title": "প্যাকেজিং উপকরণ",
+        "section4-item1": "নাজুপণ্য আইটেমগুলির জন্য বাবল র্যাপ বা টিস্যু র্যাপ ব্যবহার করুন।",
+        "section4-item2": "ছোট খেলনার জন্য জিপ-লক ব্যাগ ব্যবহার করুন।",
+        "section4-item3": "প্রযোজ্য ক্ষেত্রে ব্র্যান্ডেড স্টিকার সীল প্রয়োগ করুন।",
+        "section5-title": "বাক্সিং এবং সীলিং",
+        "section5-item1": "একটি উপযুক্ত আকারের বাক্স বেছে নিন — খুব ঢিলে বা খুব শক্ত নয়।",
+        "section5-item2": "ব্র্যান্ডেড বা বাদামী প্যাকিং টেপ দিয়ে সীল করুন।",
+        "section5-item3": "একটি ধন্যবাদ কার্ড বা মাইন্ডস্পার্ক ইনসার্ট অন্তর্ভুক্ত করুন (যদি উপলব্ধ থাকে)।",
+        "section6-title": "লেবেল স্থাপন",
+        "section6-item1": "সিম বা ভাঁজ এড়িয়ে শীর্ষে লেবেলটি সমতলভাবে লাগান।",
+        "section6-item2": "যদি হাতে লেখা হয়, কালো মার্কার ব্যবহার করুন এবং স্পষ্টভাবে লিখুন।",
+        "section7-title": "লেবেল তৈরি প্রক্রিয়া",
+        "section7-item1": "মাইন্ডস্পার্ক ওয়েবসাইট ড্যাশবোর্ডে লগইন করুন।",
+        "section7-item2": "WooCommerce > অর্ডার রপ্তানিতে নেভিগেট করুন।",
+        "section7-item3": "আপনি যে অর্ডারগুলি প্রক্রিয়া করতে চান তার জন্য তারিখের পরিসর নির্বাচন করুন।",
+        "section7-item4": "প্রয়োজনে, নির্দিষ্ট অর্ডার নির্বাচন করতে লেবেল পরিসর ইনপুট করুন।",
+        "section7-item5": "এক্সেল ফাইল ডাউনলোড করুন।",
+        "section7-item6": "ফাইলটি খুলুন এবং যেকোনো বিকাশ বা অগ্রিম-প্রদত্ত এন্ট্রির জন্য পরিমাণ শূন্য সেট করুন।",
+        "section7-item7": "আপডেটেড এক্সেল ফাইল সংরক্ষণ করুন।",
+        "section7-item8": "এই URL খুলুন: 🔗 <a href=\"#\" target=\"_blank\">লেবেল জেনারেটর (Google Colab)</a>",
+        "section7-item9": "এক্সেল ফাইল আপলোড করুন এবং লেবেল তৈরি করুন।",
+        "section7-item10": "নির্ভুলতা নিশ্চিত করতে সমস্ত লেবেল সাবধানে পর্যালোচনা করুন।",
+        "section7-item11": "লেআউট, নাম এবং ঠিকানার বিবরণ ডাবল-চেক করুন।",
+        "section7-item12": "লেবেল প্রিন্ট করুন।",
+        "section8-title": "প্রেরণের আগে চূড়ান্ত চেকলিস্ট",
+        "section8-item1": "পণ্য পরিষ্কার এবং যাচাইকৃত",
+        "section8-item2": "কাজ করার পরীক্ষা করা হয়েছে (প্রয়োজনে)",
+        "section8-item3": "সমস্ত অংশ পরীক্ষা করা হয়েছে",
+        "section8-item4": "সঠিক প্যাকেজিং প্রয়োগ করা হয়েছে",
+        "section8-item5": "লেবেল সংযুক্ত",
+        "section8-item6": "প্যাকেজের ছবি তোলা হয়েছে (প্রয়োজনে)",
+        "section9-title": "অনুগ্রহ করে পণ্যের বিবরণ শেখার এবং ধরে রাখার চেষ্টা করুন। আমরা টিম সদস্যদের প্রশ্নের উত্তর দেওয়ার সময় সক্রিয় হতে এবং তাদের বিবেচনা ব্যবহার করতে উৎসাহিত করি। প্রতিটি ছোট তথ্য মাইন্ডস্পার্ক ওয়েবসাইট, ফেসবুক পেজ বা এই প্ল্যাটফর্মে ডকুমেন্ট করা হবে না। আমাদের গ্রাহকদের আরও ভালোভাবে সেবা দিতে আপনার বোঝাপড়া এবং উদ্যোগ অত্যন্ত গুরুত্বপূর্ণ।"
+      }
+    };
+
+    // Language management
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+    const htmlTag = document.documentElement;
+    const langToggle = document.getElementById('langToggle');
+    const langCurrent = langToggle.querySelector('.lang-current');
+    const langOther = langToggle.querySelector('.lang-other');
+    const bodyTag = document.body;
+    
+    // Update page content based on selected language
+    function updateLanguage(lang) {
+      // Update HTML lang attribute
+      htmlTag.setAttribute('lang', lang);
+      
+      // Update body class for font switching
+      if (lang === 'bn') {
+        bodyTag.classList.add('lang-bn');
+      } else {
+        bodyTag.classList.remove('lang-bn');
+      }
+      
+      // Update page title
+      const pageTitle = document.querySelector('title');
+      const titleKey = pageTitle.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][titleKey]) {
+        pageTitle.textContent = translations[lang][titleKey];
+      }
+      
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const isHtml = element.hasAttribute('data-i18n-html');
+        
+        if (translations[lang] && translations[lang][key]) {
+          if (isHtml) {
+            element.innerHTML = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+      
+      // Update placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          element.placeholder = translations[lang][key];
+        }
+      });
+      
+      // Update toggle button
+      langCurrent.textContent = lang.toUpperCase();
+      langOther.textContent = lang === 'en' ? 'BN' : 'EN';
+      
+      // Store preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    // Initialize language
+    updateLanguage(currentLang);
+    
+    // Toggle language on button click
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      updateLanguage(currentLang);
+    });
+    
+    // Search functionality
     function searchText() {
       let searchTerm = document.getElementById('searchInput').value.toLowerCase();
       let contentArea = document.getElementById('pageContent');
       let listItems = contentArea.getElementsByTagName('li');
+      
+      // Clear previous highlights
       for (let item of listItems) {
         item.innerHTML = item.innerHTML.replace(/<mark class="highlight">/g, "").replace(/<\/mark>/g, "");
       }
+      
       if (searchTerm.trim() === '') {
         return;
       }
+      
+      // Highlight search term
       for (let item of listItems) {
         let originalText = item.innerHTML;
         let regex = new RegExp(searchTerm, 'gi');
@@ -173,6 +352,5 @@
       }
     }
   </script>
-
 </body>
 </html>
