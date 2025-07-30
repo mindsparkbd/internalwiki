@@ -15,21 +15,24 @@
     body {
       font-family: 'MyCustomFont', sans-serif;
       background-color: #f8f9fa;
+      position: relative; /* Added for positioning context */
+      padding-top: 60px; /* Added space for the toggle button */
     }
     .highlight {
       background-color: yellow;
       color: black;
     }
     .lang-toggle {
-      position: absolute;
+      position: fixed; /* Changed from absolute to fixed */
       top: 20px;
       right: 20px;
-      z-index: 1000;
+      z-index: 1050; /* Increased z-index to be above Bootstrap components */
     }
     .lang-toggle button {
       border-radius: 20px;
       padding: 5px 15px;
       font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Added shadow for better visibility */
     }
   </style>
 </head>
@@ -43,7 +46,7 @@
 
   <div class="container py-4">
     <div class="card w-90 mx-auto shadow-sm">
-      <div class="card-header sticky-top" style="background-color: white;">
+      <div class="card-header" style="background-color: white;"> <!-- Removed sticky-top to avoid conflicts -->
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
           <h3 class="mb-0 me-3" data-i18n="delivery-title">🚚 Delivery</h3>
           
