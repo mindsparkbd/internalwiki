@@ -3,20 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="title">Homepage</title>
+  <title>Homepage</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
-    /* Define the custom English font */
+    /* Define the custom font */
     @font-face {
       font-family: 'MyCustomFont';
       src: url('assets/myfont.ttf') format('truetype');
-      font-display: swap;
-    }
-    
-    /* Define the custom Bengali font */
-    @font-face {
-      font-family: 'MyBengaliFont';
-      src: url('assets/bengali-font.ttf') format('truetype');
       font-display: swap;
     }
     
@@ -24,37 +17,12 @@
       font-family: 'MyCustomFont', sans-serif;
     }
     
-    /* Apply Bengali font when language is Bengali */
-    body.lang-bn {
-      font-family: 'MyBengaliFont', sans-serif;
-    }
-    
     .version-box {
       border: 1px dotted #adb5bd;
-    }
-    
-    .lang-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    
-    .lang-toggle button {
-      border-radius: 20px;
-      padding: 5px 15px;
-      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <!-- Language Toggle Button -->
-  <div class="lang-toggle">
-    <button id="langToggle" class="btn btn-outline-primary btn-sm">
-      <span class="lang-current">EN</span> | <span class="lang-other">BN</span>
-    </button>
-  </div>
-  
   <!-- Main container -->
   <div class="container">
     <!-- Logo Section -->
@@ -65,31 +33,31 @@
     <!-- Card with Hyperlinked Buttons -->
     <div class="card mx-auto shadow-sm" style="max-width: 500px;">
       <div class="card-header text-center">
-        <h3 data-i18n="sop-title">Internal SOP</h3>
+        <h3>Internal SOP</h3>
       </div>
       <div class="card-body">
         <div class="d-grid gap-3">
-          <a href="page1.html" class="btn btn-outline-secondary" data-i18n="delivery">🚚 Delivery</a>
-          <a href="page2.html" class="btn btn-outline-secondary" data-i18n="customer-service">📞 Customer Service</a>
-          <a href="page3.html" class="btn btn-outline-secondary" data-i18n="product">🧸 Product & Packaging</a>
-          <a href="page4.html" class="btn btn-outline-secondary" data-i18n="training">🧑‍🏫 Training & Onboarding</a>
-          <a href="page5.html" class="btn btn-outline-secondary" data-i18n="inventory">📦 Inventory</a>
-          <a href="page6.html" class="btn btn-outline-secondary" data-i18n="tech">💻 Tech & Website Support</a>
-          <a href="page7.html" class="btn btn-outline-secondary" data-i18n="faq">🔍 FAQ</a>
+          <a href="page1.html" class="btn btn-outline-secondary">🚚 Delivery</a>
+          <a href="page2.html" class="btn btn-outline-secondary">📞 Customer Service</a>
+          <a href="page3.html" class="btn btn-outline-secondary">🧸 Product & Packaging</a>
+          <a href="page4.html" class="btn btn-outline-secondary">🧑‍🏫 Training & Onboarding</a>
+          <a href="page5.html" class="btn btn-outline-secondary">📦 Inventory</a>
+          <a href="page6.html" class="btn btn-outline-secondary">💻 Tech & Website Support</a>
+          <a href="page7.html" class="btn btn-outline-secondary">🔍 FAQ</a>
         </div>
       </div>
     </div>
     
     <!-- Attention Button Section -->
     <div class="text-center my-4">
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#attentionModal" data-i18n="attention">
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#attentionModal">
         ATTENTION
       </button>
     </div>
     
     <!-- Version Info Box -->
     <div class="version-box bg-light p-3 rounded mx-auto text-center" style="max-width: 500px;">
-        <p class="mb-0 small" data-i18n="version">Version: 1.1.2 | Last Updated: 30 July 2025</p>
+        <p class="mb-0 small">Version: 1.1.2 | Last Updated: 30 July 2025</p>
     </div>
   </div>
   
@@ -98,115 +66,21 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="attentionModalLabel" data-i18n="modal-title">⚠️ Privacy Warning</h5>
+          <h5 class="modal-title" id="attentionModalLabel">⚠️ Privacy Warning</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p data-i18n="modal-para1">This website and all its content is for internal use by the Mindspark team only. You may not share any part of this website or information with any external person or organization. This is strictly prohibited.</p>
-          <p data-i18n="modal-para2">If anyone violates this policy, Mindspark may immediately terminate your employment and reserves the right to take legal action.</p>
-          <p data-i18n="modal-para3">Our SOP and training content are Mindspark property — protecting their confidentiality is your responsibility. Please be cautious and follow the rules with integrity.</p>
+          <p>This website and all its content is for internal use by the Mindspark team only. You may not share any part of this website or information with any external person or organization. This is strictly prohibited.</p>
+          <p>If anyone violates this policy, Mindspark may immediately terminate your employment and reserves the right to take legal action.</p>
+          <p>Our SOP and training content are Mindspark property — protecting their confidentiality is your responsibility. Please be cautious and follow the rules with integrity.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="modal-close">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
-  <script>
-    // Translation data
-    const translations = {
-      en: {
-        title: "Homepage",
-        "sop-title": "Internal SOP",
-        delivery: "🚚 Delivery",
-        "customer-service": "📞 Customer Service",
-        product: "🧸 Product & Packaging",
-        training: "🧑‍🏫 Training & Onboarding",
-        inventory: "📦 Inventory",
-        tech: "💻 Tech & Website Support",
-        faq: "🔍 FAQ",
-        attention: "ATTENTION",
-        version: "Version: 1.0.1 | Last Updated: 30 July 2025",
-        "modal-title": "⚠️ Privacy Warning",
-        "modal-para1": "This website and all its content is for internal use by the Mindspark team only. You may not share any part of this website or information with any external person or organization. This is strictly prohibited.",
-        "modal-para2": "If anyone violates this policy, Mindspark may immediately terminate your employment and reserves the right to take legal action.",
-        "modal-para3": "Our SOP and training content are Mindspark property — protecting their confidentiality is your responsibility. Please be cautious and follow the rules with integrity.",
-        "modal-close": "Close"
-      },
-      bn: {
-        title: "হোমপেজ",
-        "sop-title": "অভ্যন্তরীণ এসওপি",
-        delivery: "🚚 ডেলিভারি",
-        "customer-service": "📞 গ্রাহক সেবা",
-        product: "🧸 পণ্য ও প্যাকেজিং",
-        training: "🧑‍🏫 প্রশিক্ষণ ও অনবোর্ডিং",
-        inventory: "📦 ইনভেন্টরি",
-        tech: "💻 টেক ও ওয়েবসাইট সহায়তা",
-        faq: "🔍 সাধারণ প্রশ্ন",
-        attention: "সতর্কতা",
-        version: "সংস্করণ: 1.0.1 | সর্বশেষ আপডেট: ৩০ জুলাই ২০২৫",
-        "modal-title": "⚠️ গোপনীয়তা সতর্কীকরণ",
-        "modal-para1": "এই ওয়েবসাইট এবং এর সকল কনটেন্ট শুধুমাত্র মাইন্ডস্পার্ক টিমের অভ্যন্তরীণ ব্যবহারের জন্য। আপনি এই ওয়েবসাইটের কোনো অংশ বা তথ্য কোনো বাইরের ব্যক্তি বা প্রতিষ্ঠানের সঙ্গে শেয়ার করতে পারবেন না। এটি একটি স্পষ্টভাবে নিষিদ্ধ কার্যকলাপ।",
-        "modal-para2": "যদি কেউ এই নীতিমালা লঙ্ঘন করে, মাইন্ডস্পার্ক তাৎক্ষণিকভাবে আপনার কর্মসংস্থান বাতিল করতে পারে এবং আইনি ব্যবস্থা গ্রহণ করার অধিকার রাখে।",
-        "modal-para3": "আমাদের SOP এবং প্রশিক্ষণ কনটেন্ট হচ্ছে মাইন্ডস্পার্কের সম্পত্তি — এগুলোর গোপনীয়তা রক্ষা করা আপনার দায়িত্ব। দয়া করে সতর্ক থাকুন এবং সততার সঙ্গে নিয়ম মেনে চলুন।",
-        "modal-close": "বন্ধ করুন"
-      }
-    };
-
-    // Language management
-    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
-    const htmlTag = document.documentElement;
-    const langToggle = document.getElementById('langToggle');
-    const langCurrent = langToggle.querySelector('.lang-current');
-    const langOther = langToggle.querySelector('.lang-other');
-    const bodyTag = document.body;
-    
-    // Update page content based on selected language
-    function updateLanguage(lang) {
-      // Update HTML lang attribute
-      htmlTag.setAttribute('lang', lang);
-      
-      // Update body class for font switching
-      if (lang === 'bn') {
-        bodyTag.classList.add('lang-bn');
-      } else {
-        bodyTag.classList.remove('lang-bn');
-      }
-      
-      // Update page title
-      const pageTitle = document.querySelector('title');
-      const titleKey = pageTitle.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][titleKey]) {
-        pageTitle.textContent = translations[lang][titleKey];
-      }
-      
-      // Update all elements with data-i18n attribute
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
-      
-      // Update toggle button
-      langCurrent.textContent = lang.toUpperCase();
-      langOther.textContent = lang === 'en' ? 'BN' : 'EN';
-      
-      // Store preference
-      localStorage.setItem('preferredLanguage', lang);
-    }
-    
-    // Initialize language
-    updateLanguage(currentLang);
-    
-    // Toggle language on button click
-    langToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'bn' : 'en';
-      updateLanguage(currentLang);
-    });
-  </script>
 </body>
 </html>
