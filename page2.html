@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="page-title">🧸 Product & Packaging</title>
+  <title data-i18n="page-title">📞 Customer Service</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <style>
@@ -56,7 +56,7 @@
       <div class="card-header sticky-top" style="background-color: white;">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
           <div class="d-flex align-items-center">
-            <h3 class="mb-0 me-3" data-i18n="product-title">🧸 Product & Packaging</h3>
+            <h3 class="mb-0 me-3" data-i18n="service-title">📞 Customer Service</h3>
             <div class="lang-toggle">
               <button id="langToggle" class="btn btn-outline-primary btn-sm">
                 <span class="lang-current">EN</span> | <span class="lang-other">BN</span>
@@ -76,69 +76,91 @@
       <div class="card-body" id="pageContent">
         <ol class="list-group list-group-flush">
           <li class="list-group-item">
-            <span data-i18n="section1-title">Product Quality Standards</span>
+            <span data-i18n="section1-title">Product Pricing Requests</span>
             <ul>
-              <li data-i18n="section1-item1">All products must meet quality standards before being listed for sale.</li>
-              <li data-i18n="section1-item2">Inspect products for defects, damage, or missing parts before packaging.</li>
-              <li data-i18n="section1-item3">Report any quality issues to the product manager immediately.</li>
+              <li data-i18n="section1-item1" data-i18n-html="true">If a customer asks for the prices of multiple toys or "all toys," politely direct them to the website: <a href="https://mindsparkbd.com/shop/" target="_blank">Mindspark</a></li>
             </ul>
           </li>
           <li class="list-group-item">
-            <span data-i18n="section2-title">Packaging Materials</span>
+            <span data-i18n="section2-title">Lead Qualification</span>
             <ul>
-              <li data-i18n="section2-item1">Use only approved packaging materials for all products.</li>
-              <li data-i18n="section2-item2">Ensure packaging is clean, undamaged, and appropriate for the product size.</li>
-              <li data-i18n="section2-item3">Maintain adequate stock of packaging materials at all times.</li>
+              <li data-i18n="section2-item1">If a customer asks any questions after getting the price (e.g., color, size, delivery, etc.), mark the lead as "Qualified."</li>
             </ul>
           </li>
           <li class="list-group-item">
-            <span data-i18n="section3-title">Packaging Process</span>
+            <span data-i18n="section3-title">Saved Message Usage</span>
             <ul>
-              <li data-i18n="section3-item1">Follow the standard packaging procedure for each product category.</li>
-              <li data-i18n="section3-item2">Include all necessary accessories, manuals, and warranty cards.</li>
-              <li data-i18n="section3-item3">Seal packages securely to prevent tampering during transit.</li>
+              <li data-i18n="section3-item1">Always use saved messages for faster and standardized replies.</li>
+              <li data-i18n="section3-item2">Update saved replies immediately when a product price changes.</li>
+              <li data-i18n="section3-item3">Add new saved messages for frequently asked questions not already listed.</li>
             </ul>
           </li>
           <li class="list-group-item">
-            <span data-i18n="section4-title">Labeling Requirements</span>
+            <span data-i18n="section4-title">Replying to Customer Messages</span>
             <ul>
-              <li data-i18n="section4-item1">Apply product labels with correct information and pricing.</li>
-              <li data-i18n="section4-item2">Ensure barcodes are scannable and properly positioned.</li>
-              <li data-i18n="section4-item3">Include safety warnings and age recommendations where applicable.</li>
-            </ul>
-          </li>
-          
-          <li class="list-group-item">
-            <span data-i18n="section5-title">Inventory Management</span>
-            <ul>
-              <li data-i18n="section5-item1">Update inventory records immediately after packaging products.</li>
-              <li data-i18n="section5-item2">Conduct regular inventory checks to ensure accuracy.</li>
-              <li data-i18n="section5-item3">Report low stock levels to the inventory manager.</li>
+              <li data-i18n="section4-item1">Respond to both images and text when customers send product screenshots or mention items verbally.</li>
             </ul>
           </li>
           <li class="list-group-item">
-            <span data-i18n="section6-title">Special Handling Instructions</span>
+            <span data-i18n="section5-title">Delivery Charges Reminder</span>
             <ul>
-              <li data-i18n="section6-item1">Follow special handling instructions for fragile or sensitive products.</li>
-              <li data-i18n="section6-item2">Use additional protective materials for delicate items.</li>
-              <li data-i18n="section6-item3">Clearly mark packages containing fragile items.</li>
+              <li data-i18n="section5-item1">After replying with product prices, always follow up by sending the standard delivery charge information.</li>
             </ul>
           </li>
           
           <li class="list-group-item">
-            <span data-i18n="section7-title">Returns and Defective Products</span>
+            <span data-i18n="section6-title">Order Confirmation</span>
             <ul>
-              <li data-i18n="section7-item1">Inspect returned products to determine the nature of the defect.</li>
-              <li data-i18n="section7-item2">Document all returns with detailed information about the issue.</li>
-              <li data-i18n="section7-item3">Follow the established procedure for processing returns and exchanges.</li>
+              <li data-i18n="section6-item1">When a customer asks to place an order, calculate and send the Total Bill (product + delivery charges).</li>
+              <li data-i18n="section6-item2">Once the customer confirms, reply with the saved message "Confirm Order."</li>
+              <li data-i18n="section6-item3">If there's no response, mark the lead as Follow-up, and send a reminder message later that day.</li>
             </ul>
           </li>
           <li class="list-group-item">
-            <span data-i18n="section8-title">Safety Compliance</span>
+            <span data-i18n="section7-title">Customer Info Submission</span>
             <ul>
-              <li data-i18n="section8-item1">Ensure all products comply with relevant safety standards and regulations.</li>
-              <li data-i18n="section8-item2">Stay updated on changes to safety requirements for product categories.</li>
-              <li data-i18n="section8-item3">Report any safety concerns to the compliance officer immediately.</li>
+              <li data-i18n="section7-item1">When a customer shares their Name, Address, and Phone Number, immediately take a screenshot and send it to the Mindspark WhatsApp Group.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section8-title">Final Lead Status</span>
+            <ul>
+              <li data-i18n="section8-item1" data-i18n-html="true">After a confirmed order: Mark as "Converted, Ordered." (<a href="#" target="_blank" style="color: red; text-decoration: underline;" data-i18n="section8-link">See How to do</a>)</li>
+              <li data-i18n="section8-item2">Tag the message with Today's Date under suggested labels.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section9-title">Unanswered Chats</span>
+            <ul>
+              <li data-i18n="section9-item1">If you need to step away or cannot reply immediately, mark the conversation as Unread so that others can pick it up.</li>
+            </ul>
+          </li>
+          
+          <li class="list-group-item">
+            <span data-i18n="section10-title">Don't Know the Answer?</span>
+            <ul>
+              <li data-i18n="section10-item1">If you're unsure about a query, take a screenshot and send it to the Mindspark Operations group.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section11-title">Avoiding Interruption</span>
+            <ul>
+              <li data-i18n="section11-item1">If another team member is already replying to a customer, do not interrupt the flow.</li>
+              <li data-i18n="section11-item2">If a customer query has been unanswered for 10+ minutes, you may then take over and respond.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section12-title">Inbox Order Entry & Confirmation</span>
+            <ul>
+              <li data-i18n="section12-item1">If an order is confirmed in Messenger or Instagram inbox, create a visible order message showing the exact product list and total amount in BDT.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section13-title">Website Order Confirmation</span>
+            <ul>
+              <li data-i18n="section13-item1">For website orders, call the customer between 3:30 PM and 5:00 PM to confirm.</li>
+              <li data-i18n="section13-item2">On call, repeat the ordered items, address, and total bill.</li>
+              <li data-i18n="section13-item3">Let the customer know the estimated delivery time, and offer any additional help or information they might ask for.</li>
             </ul>
           </li>
         </ol>
@@ -151,140 +173,161 @@
     // Translation data
     const translations = {
       en: {
-        "page-title": "🧸 Product & Packaging",
-        "product-title": "🧸 Product & Packaging",
+        "page-title": "📞 Customer Service",
+        "service-title": "📞 Customer Service",
         "search-placeholder": "Search content...",
         "search-button": "Search",
         "home-button": "← Home",
-        "section1-title": "Product Quality Standards",
-        "section1-item1": "All products must meet quality standards before being listed for sale.",
-        "section1-item2": "Inspect products for defects, damage, or missing parts before packaging.",
-        "section1-item3": "Report any quality issues to the product manager immediately.",
-        "section2-title": "Packaging Materials",
-        "section2-item1": "Use only approved packaging materials for all products.",
-        "section2-item2": "Ensure packaging is clean, undamaged, and appropriate for the product size.",
-        "section2-item3": "Maintain adequate stock of packaging materials at all times.",
-        "section3-title": "Packaging Process",
-        "section3-item1": "Follow the standard packaging procedure for each product category.",
-        "section3-item2": "Include all necessary accessories, manuals, and warranty cards.",
-        "section3-item3": "Seal packages securely to prevent tampering during transit.",
-        "section4-title": "Labeling Requirements",
-        "section4-item1": "Apply product labels with correct information and pricing.",
-        "section4-item2": "Ensure barcodes are scannable and properly positioned.",
-        "section4-item3": "Include safety warnings and age recommendations where applicable.",
-        "section5-title": "Inventory Management",
-        "section5-item1": "Update inventory records immediately after packaging products.",
-        "section5-item2": "Conduct regular inventory checks to ensure accuracy.",
-        "section5-item3": "Report low stock levels to the inventory manager.",
-        "section6-title": "Special Handling Instructions",
-        "section6-item1": "Follow special handling instructions for fragile or sensitive products.",
-        "section6-item2": "Use additional protective materials for delicate items.",
-        "section6-item3": "Clearly mark packages containing fragile items.",
-        "section7-title": "Returns and Defective Products",
-        "section7-item1": "Inspect returned products to determine the nature of the defect.",
-        "section7-item2": "Document all returns with detailed information about the issue.",
-        "section7-item3": "Follow the established procedure for processing returns and exchanges.",
-        "section8-title": "Safety Compliance",
-        "section8-item1": "Ensure all products comply with relevant safety standards and regulations.",
-        "section8-item2": "Stay updated on changes to safety requirements for product categories.",
-        "section8-item3": "Report any safety concerns to the compliance officer immediately."
+        "section1-title": "Product Pricing Requests",
+        "section1-item1": "If a customer asks for the prices of multiple toys or \"all toys,\" politely direct them to the website: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">Mindspark</a>",
+        "section2-title": "Lead Qualification",
+        "section2-item1": "If a customer asks any questions after getting the price (e.g., color, size, delivery, etc.), mark the lead as \"Qualified.\"",
+        "section3-title": "Saved Message Usage",
+        "section3-item1": "Always use saved messages for faster and standardized replies.",
+        "section3-item2": "Update saved replies immediately when a product price changes.",
+        "section3-item3": "Add new saved messages for frequently asked questions not already listed.",
+        "section4-title": "Replying to Customer Messages",
+        "section4-item1": "Respond to both images and text when customers send product screenshots or mention items verbally.",
+        "section5-title": "Delivery Charges Reminder",
+        "section5-item1": "After replying with product prices, always follow up by sending the standard delivery charge information.",
+        "section6-title": "Order Confirmation",
+        "section6-item1": "When a customer asks to place an order, calculate and send the Total Bill (product + delivery charges).",
+        "section6-item2": "Once the customer confirms, reply with the saved message \"Confirm Order.\"",
+        "section6-item3": "If there's no response, mark the lead as Follow-up, and send a reminder message later that day.",
+        "section7-title": "Customer Info Submission",
+        "section7-item1": "When a customer shares their Name, Address, and Phone Number, immediately take a screenshot and send it to the Mindspark WhatsApp Group.",
+        "section8-title": "Final Lead Status",
+        "section8-item1": "After a confirmed order: Mark as \"Converted, Ordered.\" (<a href=\"#\" target=\"_blank\" style=\"color: red; text-decoration: underline;\">See How to do</a>)",
+        "section8-link": "See How to do",
+        "section8-item2": "Tag the message with Today's Date under suggested labels.",
+        "section9-title": "Unanswered Chats",
+        "section9-item1": "If you need to step away or cannot reply immediately, mark the conversation as Unread so that others can pick it up.",
+        "section10-title": "Don't Know the Answer?",
+        "section10-item1": "If you're unsure about a query, take a screenshot and send it to the Mindspark Operations group.",
+        "section11-title": "Avoiding Interruption",
+        "section11-item1": "If another team member is already replying to a customer, do not interrupt the flow.",
+        "section11-item2": "If a customer query has been unanswered for 10+ minutes, you may then take over and respond.",
+        "section12-title": "Inbox Order Entry & Confirmation",
+        "section12-item1": "If an order is confirmed in Messenger or Instagram inbox, create a visible order message showing the exact product list and total amount in BDT.",
+        "section13-title": "Website Order Confirmation",
+        "section13-item1": "For website orders, call the customer between 3:30 PM and 5:00 PM to confirm.",
+        "section13-item2": "On call, repeat the ordered items, address, and total bill.",
+        "section13-item3": "Let the customer know the estimated delivery time, and offer any additional help or information they might ask for."
       },
       bn: {
-        "page-title": "🧸 পণ্য ও প্যাকেজিং",
-        "product-title": "🧸 পণ্য ও প্যাকেজিং",
+        "page-title": "📞 গ্রাহক সেবা",
+        "service-title": "📞 গ্রাহক সেবা",
         "search-placeholder": "কন্টেন্ট অনুসন্ধান করুন...",
         "search-button": "অনুসন্ধান",
         "home-button": "← হোম",
-        "section1-title": "পণ্যের মান মান",
-        "section1-item1": "বিক্রয়ের জন্য তালিকাভুক্ত করার আগে সমস্ত পণ্যকে অবশ্যই মান মান পূরণ করতে হবে।",
-        "section1-item2": "প্যাকেজিংয়ের আগে পণ্যগুলি ত্রুটি, ক্ষতি বা অনুপস্থিত অংশগুলির জন্য পরিদর্শন করুন।",
-        "section1-item3": "যেকোনো মান সমস্যা অবিলম্বে পণ্য ব্যবস্থাপককে জানান।",
-        "section2-title": "প্যাকেজিং উপকরণ",
-        "section2-item1": "সমস্ত পণ্যের জন্য শুধুমাত্র অনুমোদিত প্যাকেজিং উপকরণ ব্যবহার করুন।",
-        "section2-item2": "নিশ্চিত করুন যে প্যাকেজিং পরিষ্কার, ক্ষতিগ্রস্ত নয় এবং পণ্যের আকারের জন্য উপযুক্ত।",
-        "section2-item3": "সর্বদা প্যাকেজিং উপকরণের পর্যাপ্ত স্টক বজায় রাখুন।",
-        "section3-title": "প্যাকেজিং প্রক্রিয়া",
-        "section3-item1": "প্রতিটি পণ্য বিভাগের জন্য আদর্শ প্যাকেজিং পদ্ধতি অনুসরণ করুন।",
-        "section3-item2": "সমস্ত প্রয়োজনীয় আনুষঙ্গিক, ম্যানুয়াল এবং ওয়ারেন্টি কার্ড অন্তর্ভুক্ত করুন।",
-        "section3-item3": "ট্রানজিটের সময় হস্তক্ষেপ প্রতিরোধ করতে প্যাকেজগুলি নিরাপদে সীল করুন।",
-        "section4-title": "লেবেলিং প্রয়োজনীয়তা",
-        "section4-item1": "সঠিক তথ্য এবং মূল্য সহ পণ্য লেবেল প্রয়োগ করুন।",
-        "section4-item2": "নিশ্চিত করুন যে বারকোডগুলি স্ক্যানযোগ্য এবং সঠিকভাবে অবস্থিত।",
-        "section4-item3": "প্রযোজ্য ক্ষেত্রে সুরক্ষা সতর্কতা এবং বয়স সুপারিশ অন্তর্ভুক্ত করুন।",
-        "section5-title": "ইনভেন্টরি ব্যবস্থাপনা",
-        "section5-item1": "পণ্য প্যাকেজিংয়ের পরে অবিলম্বে ইনভেন্টরি রেকর্ড আপডেট করুন।",
-        "section5-item2": "নির্ভুলতা নিশ্চিত করতে নিয়মিত ইনভেন্টরি চেক পরিচালনা করুন।",
-        "section5-item3": "ইনভেন্টরি ব্যবস্থাপককে কম স্টক স্তর জানান।",
-        "section6-title": "বিশেষ হ্যান্ডলিং নির্দেশাবলী",
-        "section6-item1": "ভঙ্গুর বা সংবেদনশীল পণ্যের জন্য বিশেষ হ্যান্ডলিং নির্দেশাবলী অনুসরণ করুন।",
-        "section6-item2": "কোমল আইটেমগুলির জন্য অতিরিক্ত সুরক্ষামূলক উপকরণ ব্যবহার করুন।",
-        "section6-item3": "ভঙ্গুর আইটেম ধারণকারী প্যাকেজগুলি স্পষ্টভাবে চিহ্নিত করুন।",
-        "section7-title": "রিটার্ন এবং ত্রুটিপূর্ণ পণ্য",
-        "section7-item1": "ত্রুটির প্রকৃতি নির্ধারণ করতে ফেরত পণ্যগুলি পরিদর্শন করুন।",
-        "section7-item2": "সমস্যা সম্পর্কে বিস্তারিত তথ্য সহ সমস্ত রিটার্ন ডকুমেন্ট করুন।",
-        "section7-item3": "রিটার্ন এবং এক্সচেঞ্জ প্রক্রিয়া করার জন্য প্রতিষ্ঠিত পদ্ধতি অনুসরণ করুন।",
-        "section8-title": "নিরাপত্তা সম্মতি",
-        "section8-item1": "নিশ্চিত করুন যে সমস্ত পণ্য প্রাসঙ্গিক সুরক্ষা মান এবং প্রবিধান মেনে চলে।",
-        "section8-item2": "পণ্য বিভাগগুলির জন্য সুরক্ষা প্রয়োজনীয়তার পরিবর্তনগুলির সাথে আপডেট থাকুন।",
-        "section8-item3": "যেকোনো সুরক্ষা উদ্বেগ অবিলম্বে সম্মতি কর্মকর্তাকে জানান।"
+        "section1-title": "পণ্যের মূল্য অনুরোধ",
+        "section1-item1": "যদি কোনো গ্রাহক একাধিক খেলনা বা \"সব খেলনা\" এর দাম জানতে চান, তাদের বিনীতভাবে ওয়েবসাইটে দাম দেখতে অনুরোধ করুন: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">মাইন্ডস্পার্ক</a>",
+        "section2-title": "লিড যোগ্যতা",
+        "section2-item1": "যদি কোনো গ্রাহক দাম পাওয়ার পরে কোনো প্রশ্ন করেন (যেমন রঙ, আকার, ডেলিভারি ইত্যাদি), লিডটিকে \"যোগ্য\" হিসাবে চিহ্নিত করুন।",
+        "section3-title": "সংরক্ষিত বার্তা ব্যবহার",
+        "section3-item1": "দ্রুত এবং আদর্শ উত্তরের জন্য সর্বদা সংরক্ষিত বার্তা ব্যবহার করুন।",
+        "section3-item2": "কোনো পণ্যের দাম পরিবর্তন হলে অবিলম্বে সংরক্ষিত উত্তরগুলি আপডেট করুন।",
+        "section3-item3": "ইতিমধ্যে তালিকাভুক্ত নয় এমন প্রায়শই জিজ্ঞাসিত প্রশ্নগুলির জন্য নতুন সংরক্ষিত বার্তা যোগ করুন।",
+        "section4-title": "গ্রাহকের বার্তার উত্তর দেওয়া",
+        "section4-item1": "গ্রাহকরা যখন পণ্যের স্ক্রিনশট পাঠান বা মৌখিকভাবে আইটেম উল্লেখ করেন, তখন উভয় চিত্র এবং পাঠ্যের উত্তর দিন।",
+        "section5-title": "ডেলিভারি চার্জ স্মরণীকরণ",
+        "section5-item1": "পণ্যের দাম দিয়ে উত্তর দেওয়ার পরে, সর্বদা স্ট্যান্ডার্ড ডেলিভারি চার্জ তথ্য পাঠিয়ে অনুসরণ করুন।",
+        "section6-title": "অর্ডার নিশ্চিতকরণ",
+        "section6-item1": "যখন কোনো গ্রাহক অর্ডার দিতে বলেন, মোট বিল (পণ্য + ডেলিভারি চার্জ) গণনা করুন এবং পাঠান।",
+        "section6-item2": "গ্রাহক নিশ্চিত করার পরে, \"অর্ডার নিশ্চিত করুন\" সংরক্ষিত বার্তা দিয়ে উত্তর দিন।",
+        "section6-item3": "যদি কোনো প্রতিক্রিয়া না থাকে, লিডটিকে ফলো-আপ হিসাবে চিহ্নিত করুন, এবং সেই দিন পরে একটি স্মরণীকরণ বার্তা পাঠান।",
+        "section7-title": "গ্রাহকের তথ্য জমা দেওয়া",
+        "section7-item1": "যখন কোনো গ্রাহক তাদের নাম, ঠিকানা এবং ফোন নম্বর শেয়ার করেন, তখন অবিলম্বে একটি স্ক্রিনশট নিন এবং মাইন্ডস্পার্ক হোয়াটসঅ্যাপ গ্রুপে পাঠান।",
+        "section8-title": "চূড়ান্ত লিড অবস্থা",
+        "section8-item1": "নিশ্চিত অর্ডারের পরে: \"রূপান্তরিত, অর্ডার করা হয়েছে\" হিসাবে চিহ্নিত করুন। (<a href=\"#\" target=\"_blank\" style=\"color: red; text-decoration: underline;\">কিভাবে করবেন দেখুন</a>)",
+        "section8-link": "কিভাবে করবেন দেখুন",
+        "section8-item2": "প্রস্তাবিত লেবেলের অধীনে বার্তাটি আজকের তারিখ দিয়ে ট্যাগ করুন।",
+        "section9-title": "অনুত্তরিত চ্যাট",
+        "section9-item1": "যদি আপনাকে সরে যেতে হয় বা অবিলম্বে উত্তর দিতে না পারেন, তবে কথোপকথনটি অপঠিত হিসাবে চিহ্নিত করুন যাতে অন্যরা তা নিতে পারে।",
+        "section10-title": "উত্তর জানেন না?",
+        "section10-item1": "যদি আপনি কোনো প্রশ্নের বিষয়ে অনিশ্চিত হন, একটি স্ক্রিনশট নিন এবং মাইন্ডস্পার্ক অপারেশন গ্রুপে পাঠান।",
+        "section11-title": "বাধা এড়ানো",
+        "section11-item1": "যদি অন্য কোনো টিম সদস্য ইতিমধ্যে কোনো গ্রাহকের উত্তর দিচ্ছেন, তবে প্রবাহে বাধা দেবেন না।",
+        "section11-item2": "যদি কোনো গ্রাহকের প্রশ্ন ১০+ মিনিটের জন্য অনুত্তরিত থাকে, তবে আপনি তখন নিয়ন্ত্রণ নিতে এবং উত্তর দিতে পারেন।",
+        "section12-title": "ইনবক্স অর্ডার এন্ট্রি এবং নিশ্চিতকরণ",
+        "section12-item1": "যদি মেসেঞ্জার বা ইনস্টাগ্রাম ইনবক্সে কোনো অর্ডার নিশ্চিত হয়, সঠিক পণ্য তালিকা এবং বিডিটিতে মোট পরিমাণ দেখানো একটি দৃশ্যমান অর্ডার বার্তা তৈরি করুন।",
+        "section13-title": "ওয়েবসাইট অর্ডার নিশ্চিতকরণ",
+        "section13-item1": "ওয়েবসাইট অর্ডারের জন্য, নিশ্চিত করতে বিকাল ৩:৩০ টা থেকে ৫:০০ টার মধ্যে গ্রাহককে কল করুন।",
+        "section13-item2": "কলে, অর্ডার করা আইটেম, ঠিকানা এবং মোট বিল পুনরাবৃত্তি করুন।",
+        "section13-item3": "গ্রাহককে অনুমানিত ডেলিভারি সময় জানান, এবং তারা যে কোনো অতিরিক্ত সহায়তা বা তথ্য জিজ্ঞাসা করতে পারে তা অফার করুন।"
       }
     };
+
     // Language management
     let currentLang = localStorage.getItem('preferredLanguage') || 'en';
     const htmlTag = document.documentElement;
-    const langToggle = document.getElementById('langToggle');
-    const langCurrent = langToggle.querySelector('.lang-current');
-    const langOther = langToggle.querySelector('.lang-other');
     const bodyTag = document.body;
-    // Update page content based on selected language
-    function updateLanguage(lang) {
-      // Update HTML lang attribute
-      htmlTag.setAttribute('lang', lang);
+    
+    // Wait for DOM to be fully loaded before initializing
+    document.addEventListener('DOMContentLoaded', function() {
+      const langToggle = document.getElementById('langToggle');
+      const langCurrent = langToggle.querySelector('.lang-current');
+      const langOther = langToggle.querySelector('.lang-other');
       
-      // Update body class for font switching
-      if (lang === 'bn') {
-        bodyTag.classList.add('lang-bn');
-      } else {
-        bodyTag.classList.remove('lang-bn');
+      // Update page content based on selected language
+      function updateLanguage(lang) {
+        // Update HTML lang attribute
+        htmlTag.setAttribute('lang', lang);
+        
+        // Update body class for font switching
+        if (lang === 'bn') {
+          bodyTag.classList.add('lang-bn');
+        } else {
+          bodyTag.classList.remove('lang-bn');
+        }
+        
+        // Update page title
+        const pageTitle = document.querySelector('title');
+        const titleKey = pageTitle.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][titleKey]) {
+          pageTitle.textContent = translations[lang][titleKey];
+        }
+        
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          const isHtml = element.hasAttribute('data-i18n-html');
+          
+          if (translations[lang] && translations[lang][key]) {
+            if (isHtml) {
+              element.innerHTML = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+        
+        // Update placeholders
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const key = element.getAttribute('data-i18n-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+          }
+        });
+        
+        // Update toggle button
+        langCurrent.textContent = lang.toUpperCase();
+        langOther.textContent = lang === 'en' ? 'BN' : 'EN';
+        
+        // Store preference
+        localStorage.setItem('preferredLanguage', lang);
       }
       
-      // Update page title
-      const pageTitle = document.querySelector('title');
-      const titleKey = pageTitle.getAttribute('data-i18n');
-      if (translations[lang] && translations[lang][titleKey]) {
-        pageTitle.textContent = translations[lang][titleKey];
-      }
-      
-      // Update all elements with data-i18n attribute
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.textContent = translations[lang][key];
-        }
-      });
-      
-      // Update placeholders
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-        const key = element.getAttribute('data-i18n-placeholder');
-        if (translations[lang] && translations[lang][key]) {
-          element.placeholder = translations[lang][key];
-        }
-      });
-      
-      // Update toggle button
-      langCurrent.textContent = lang.toUpperCase();
-      langOther.textContent = lang === 'en' ? 'BN' : 'EN';
-      
-      // Store preference
-      localStorage.setItem('preferredLanguage', lang);
-    }
-    // Initialize language
-    updateLanguage(currentLang);
-    // Toggle language on button click
-    langToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'bn' : 'en';
+      // Initialize language
       updateLanguage(currentLang);
+      
+      // Toggle language on button click
+      langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'bn' : 'en';
+        updateLanguage(currentLang);
+      });
     });
+    
     // Search functionality
     function searchText() {
       let searchTerm = document.getElementById('searchInput').value.toLowerCase();
