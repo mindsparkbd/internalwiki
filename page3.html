@@ -54,7 +54,7 @@
       </div>
 
       <!-- Card Body: This is the area where the search will be performed -->
-           <!-- Card Body: This is the area where the search will be performed -->
+      <!-- Card Body: This is the area where the search will be performed -->
       <div class="card-body" id="pageContent">
         
         <ol class="list-group list-group-flush">
@@ -113,18 +113,19 @@
           <li class="list-group-item">
             Label Making Process
             <ul>
-                      <li>Login to the Mindspark website dashboard.</li>
-                      <li>Navigate to WooCommerce > Export Orders.</li>
-                      <li>Select the date range for the orders you want to process.</li>
-                      <li>If needed, input the label range to select specific orders.</li>
-                      <li>Download the Excel file.</li>
-                      <li>Open the file and set the amount to zero for any Bkash or advance-paid entries.</li>
-                      <li>Save the updated Excel file.</li>
-                      <li>Open this URL: 🔗 <a href="#" target="_blank">Label Generator (Google Colab)</a></li>
-                      <li>Upload the Excel file and generate the labels.</li>
-                      <li>Carefully review all labels to ensure accuracy.</li>
-                      <li>Double-check the layout, names, and address details.</li>
-                      <li>Print the labels.</li>
+              <li>Login to the Mindspark website dashboard.</li>
+              <li>Navigate to WooCommerce > Export Orders.</li>
+              <li>Select the date range for the orders you want to process.</li>
+              <li>If needed, input the label range to select specific orders.</li>
+              <li>Download the Excel file.</li>
+              <li>Open the file and set the amount to zero for any Bkash or advance-paid entries.</li>
+              <li>Save the updated Excel file.</li>
+              <li>Open this URL: 🔗 <a href="#" target="_blank">Label Generator (Google Colab)</a></li>
+              <li>Upload the Excel file and generate the labels.</li>
+              <li>Carefully review all labels to ensure accuracy.</li>
+              <li>Double-check the layout, names, and address details.</li>
+              <li>Print the labels.</li>
+            </ul>
           </li>
 
           <li class="list-group-item">
@@ -139,14 +140,21 @@
             </ul>
           </li>
 
-
-            <li class="list-group-item">
+          <!-- MODIFIED: Added the 'list-group-item-warning' class to give this item a yellow background -->
+          <li class="list-group-item list-group-item-warning">
             Please make an effort to learn and retain product details. We encourage team members to be proactive and use their judgment when responding to queries. Not every small piece of information will be documented on the Mindspark website, Facebook page, or this platform. Your understanding and initiative are essential to serving our customers better.
           </li>
           
+        </ol>
+      </div>```
+
+### **How It Works**
+
+Bootstrap provides contextual classes for list group items that automatically style them with different colors. By changing `class="list-group-item"` to `class="list-group-item list-group-item-warning"`, you are telling Bootstrap to apply its predefined "warning" style (a yellow background with dark text) to that specific item.
 
 
-      </div>
+
+      
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
