@@ -4,40 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage</title>
-
-  <!-- 1. Bootstrap CSS from a CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
   <style>
-    /* Define your custom font by pointing to the file in the assets folder */
+    /* Define the custom font */
     @font-face {
       font-family: 'MyCustomFont';
-      /* The path 'assets/myfont.ttf' is relative to this index.html file */
       src: url('assets/myfont.ttf') format('truetype');
+      font-display: swap;
     }
-
-    /* Apply your custom font to the entire page body */
+    
     body {
       font-family: 'MyCustomFont', sans-serif;
     }
-
-    /* NEW: Custom style for the version box's dotted border */
+    
     .version-box {
-      border: 1px dotted #adb5bd; /* A light grey color from Bootstrap's palette */
+      border: 1px dotted #adb5bd;
+    }
+    
+    /* Glowing animation for the card */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 0.8), 0 0 30px rgba(0, 123, 255, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+      }
+    }
+    
+    .card {
+      animation: glow 2s infinite;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      animation: glow 1s infinite;
+      box-shadow: 0 0 25px rgba(0, 123, 255, 0.8), 0 0 35px rgba(0, 123, 255, 0.6);
     }
   </style>
-
 </head>
 <body>
-
-  <!-- Main container for all content -->
+  <!-- Main container -->
   <div class="container">
-
     <!-- Logo Section -->
     <div class="text-center my-4">
       <img src="assets/logo.png" alt="Company Logo" style="width: 300px; height: 50px;">
     </div>
-
+    
     <!-- Card with Hyperlinked Buttons -->
     <div class="card mx-auto shadow-sm" style="max-width: 500px;">
       <div class="card-header text-center">
@@ -55,42 +70,32 @@
         </div>
       </div>
     </div>
-
+    
     <!-- Attention Button Section -->
     <div class="text-center my-4">
       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#attentionModal">
         ATTENTION
       </button>
     </div>
-
-    <!-- 
-      NEW: Version Info Box
-      - 'version-box' is our custom class for the dotted border.
-      - 'bg-light' gives it the light grey background.
-      - 'p-2' adds some padding inside the box.
-      - 'rounded' gives it slightly rounded corners to match the cards.
-      - 'mx-auto' and 'max-width' keep it aligned with the content above.
-    -->
-    <div class="version-box bg-light p-2 rounded mx-auto text-center" style="max-width: 500px;">
-        <p class="mb-0 small">Version: 1.0.1</p>
-        <p class="mb-0 small">Last Updated: 30 July 2025</p>
+    
+    <!-- Version Info Box -->
+    <div class="version-box bg-light p-3 rounded mx-auto text-center" style="max-width: 500px;">
+        <p class="mb-0 small">Version: 1.1.2 | Last Updated: 30 July 2025</p>
     </div>
-
-
   </div>
-
+  
   <!-- Bootstrap Modal -->
   <div class="modal fade" id="attentionModal" tabindex="-1" aria-labelledby="attentionModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="attentionModalLabel">⚠️ গোপনীয়তা সতর্কীকরণ</h5>
+          <h5 class="modal-title" id="attentionModalLabel">⚠️ Privacy Warning</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>এই ওয়েবসাইট এবং এর সকল কনটেন্ট শুধুমাত্র মাইন্ডস্পার্ক টিমের অভ্যন্তরীণ ব্যবহারের জন্য। আপনি এই ওয়েবসাইটের কোনো অংশ বা তথ্য কোনো বাইরের ব্যক্তি বা প্রতিষ্ঠানের সঙ্গে শেয়ার করতে পারবেন না। এটি একটি স্পষ্টভাবে নিষিদ্ধ কার্যকলাপ।</p>
-          <p>যদি কেউ এই নীতিমালা লঙ্ঘন করে, মাইন্ডস্পার্ক তাৎক্ষণিকভাবে আপনার কর্মসংস্থান বাতিল করতে পারে এবং আইনি ব্যবস্থা গ্রহণ করার অধিকার রাখে।</p>
-          <p>আমাদের SOP এবং প্রশিক্ষণ কনটেন্ট হচ্ছে মাইন্ডস্পার্কের সম্পত্তি — এগুলোর গোপনীয়তা রক্ষা করা আপনার দায়িত্ব। দয়া করে সতর্ক থাকুন এবং সততার সঙ্গে নিয়ম মেনে চলুন।</p>
+          <p>This website and all its content is for internal use by the Mindspark team only. You may not share any part of this website or information with any external person or organization. This is strictly prohibited.</p>
+          <p>If anyone violates this policy, Mindspark may immediately terminate your employment and reserves the right to take legal action.</p>
+          <p>Our SOP and training content are Mindspark property — protecting their confidentiality is your responsibility. Please be cautious and follow the rules with integrity.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -98,10 +103,7 @@
       </div>
     </div>
   </div>
-
-
-  <!-- 3. Bootstrap JavaScript Bundle -->
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 </body>
 </html>
