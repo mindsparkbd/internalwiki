@@ -15,10 +15,91 @@
     
     body {
       font-family: 'MyCustomFont', sans-serif;
+      background-color: #f8f9fa;
     }
     
     .version-box {
       border: 1px dotted #adb5bd;
+    }
+    
+    /* Card container for the glowing effect */
+    .card-container {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    /* The glowing orb that will circle the card */
+    .glow-orb {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.9) 0%, rgba(0, 123, 255, 0.4) 40%, rgba(0, 123, 255, 0) 70%);
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: orbit 8s linear infinite;
+    }
+    
+    /* Create multiple orbs for a trail effect */
+    .glow-orb:nth-child(2) {
+      animation-delay: -2s;
+      opacity: 0.7;
+    }
+    
+    .glow-orb:nth-child(3) {
+      animation-delay: -4s;
+      opacity: 0.5;
+    }
+    
+    .glow-orb:nth-child(4) {
+      animation-delay: -6s;
+      opacity: 0.3;
+    }
+    
+    /* The card itself */
+    .glowing-card {
+      border: 2px solid rgba(0, 123, 255, 0.3);
+      border-radius: 10px;
+      background-color: white;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .glowing-card .card-header {
+      background-color: rgba(0, 123, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 123, 255, 0.3);
+    }
+    
+    /* Orbital animation */
+    @keyframes orbit {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(280px) rotate(0deg);
+        box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.7);
+      }
+      25% {
+        transform: translate(-50%, -50%) rotate(90deg) translateX(280px) rotate(-90deg);
+        box-shadow: 0 0 20px 8px rgba(0, 123, 255, 0.8);
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(180deg) translateX(280px) rotate(-180deg);
+        box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.7);
+      }
+      75% {
+        transform: translate(-50%, -50%) rotate(270deg) translateX(280px) rotate(-270deg);
+        box-shadow: 0 0 20px 8px rgba(0, 123, 255, 0.8);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(280px) rotate(-360deg);
+        box-shadow: 0 0 15px 5px rgba(0, 123, 255, 0.7);
+      }
+    }
+    
+    /* Add a subtle glow to the card when hovered */
+    .glowing-card:hover {
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
     }
   </style>
 </head>
@@ -30,20 +111,29 @@
       <img src="assets/logo.png" alt="Company Logo" style="width: 300px; height: 50px;">
     </div>
     
-    <!-- Card with Hyperlinked Buttons -->
-    <div class="card mx-auto shadow-sm" style="max-width: 500px;">
-      <div class="card-header text-center">
-        <h3>Internal SOP</h3>
-      </div>
-      <div class="card-body">
-        <div class="d-grid gap-3">
-          <a href="page1.html" class="btn btn-outline-secondary">🚚 Delivery</a>
-          <a href="page2.html" class="btn btn-outline-secondary">📞 Customer Service</a>
-          <a href="page3.html" class="btn btn-outline-secondary">🧸 Product & Packaging</a>
-          <a href="page4.html" class="btn btn-outline-secondary">🧑‍🏫 Training & Onboarding</a>
-          <a href="page5.html" class="btn btn-outline-secondary">📦 Inventory</a>
-          <a href="page6.html" class="btn btn-outline-secondary">💻 Tech & Website Support</a>
-          <a href="page7.html" class="btn btn-outline-secondary">🔍 FAQ</a>
+    <!-- Card with Glowing Animation -->
+    <div class="card-container">
+      <!-- Glowing orbs -->
+      <div class="glow-orb"></div>
+      <div class="glow-orb"></div>
+      <div class="glow-orb"></div>
+      <div class="glow-orb"></div>
+      
+      <!-- Card with Hyperlinked Buttons -->
+      <div class="card mx-auto shadow-sm glowing-card">
+        <div class="card-header text-center">
+          <h3>Internal SOP</h3>
+        </div>
+        <div class="card-body">
+          <div class="d-grid gap-3">
+            <a href="page1.html" class="btn btn-outline-secondary">🚚 Delivery</a>
+            <a href="page2.html" class="btn btn-outline-secondary">📞 Customer Service</a>
+            <a href="page3.html" class="btn btn-outline-secondary">🧸 Product & Packaging</a>
+            <a href="page4.html" class="btn btn-outline-secondary">🧑‍🏫 Training & Onboarding</a>
+            <a href="page5.html" class="btn btn-outline-secondary">📦 Inventory</a>
+            <a href="page6.html" class="btn btn-outline-secondary">💻 Tech & Website Support</a>
+            <a href="page7.html" class="btn btn-outline-secondary">🔍 FAQ</a>
+          </div>
         </div>
       </div>
     </div>
