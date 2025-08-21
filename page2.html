@@ -1,201 +1,580 @@
-      <div class="reading-time" id="readingTime">
-        <i class="bi bi-clock"></i> <span data-i18n="reading-time-text">~5 min read</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page-title">📞 Customer Service</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    /* Define the custom English font */
+    @font-face {
+      font-family: 'MyCustomFont';
+      src: url('assets/myfont.ttf') format('truetype');
+      font-display: swap;
+    }
+    
+    /* Define the custom Bengali font */
+    @font-face {
+      font-family: 'MyBengaliFont';
+      src: url('assets/ruhul.ttf') format('truetype');
+      font-display: swap;
+    }
+    
+    body {
+      font-family: 'MyCustomFont', sans-serif;
+      background-color: #f8f9fa;
+      position: relative;
+      padding-top: 60px;
+    }
+    
+    /* Apply Bengali font when language is Bengali */
+    body.lang-bn {
+      font-family: 'MyBengaliFont', sans-serif;
+    }
+    
+    .highlight {
+      background-color: yellow;
+      color: black;
+    }
+    
+    .lang-toggle {
+      margin-left: 15px;
+    }
+    
+    .lang-toggle button {
+      border-radius: 20px;
+      padding: 5px 15px;
+      font-size: 14px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    /* Progress bar styles */
+    .progress-container {
+      width: 100%;
+      height: 4px;
+      background-color: #e9ecef;
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: #0d6efd;
+      transition: width 0.3s ease;
+    }
+    
+    /* Reading time box styles */
+    .reading-time {
+      display: inline-block;
+      padding: 5px 12px;
+      background-color: #e9ecef;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #495057;
+    }
+    .faq-section .list-group-item {
+      border: none;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .faq-question {
+      font-style: italic;
+      color: #6c757d;
+    }
+    .faq-answer {
+      padding: 10px;
+      background-color: #e9ecef;
+      border-radius: 5px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <div class="card w-90 mx-auto shadow-sm">
+      <div class="card-header sticky-top" style="background-color: white;">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+          <div class="d-flex align-items-center">
+            <h3 class="mb-0 me-3" data-i18n="service-title">📞 Customer Service</h3>
+            <div class="lang-toggle">
+              <button id="langToggle" class="btn btn-outline-primary btn-sm">
+                <span class="lang-current">EN</span> | <span class="lang-other">BN</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="reading-time" id="readingTime">
+            <i class="bi bi-clock"></i> <span data-i18n="reading-time-text">~5 min read</span>
+          </div>
+          
+          <a href="index.html" class="btn btn-outline-secondary" data-i18n="home-button">← Home</a>
+        </div>
       </div>
       
-      <a href="index.html" class="btn btn-outline-secondary" data-i18n="home-button">← Home</a>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      
+      <div class="card-body" id="pageContent">
+        <h4 class="mb-3" data-i18n="sop-title">Standard Operating Procedure</h4>
+        <ol class="list-group list-group-flush">
+          <li class="list-group-item">
+            <span data-i18n="section1-title">Product Pricing Requests</span>
+            <ul>
+              <li data-i18n="section1-item1" data-i18n-html="true">If a customer asks for the prices of multiple toys or "all toys," politely direct them to the website: <a href="https://mindsparkbd.com/shop/" target="_blank">Mindspark</a></li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section2-title">Lead Qualification</span>
+            <ul>
+              <li data-i18n="section2-item1">If a customer asks any questions after getting the price (e.g., color, size, delivery, etc.), mark the lead as "Qualified."</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section3-title">Saved Message Usage</span>
+            <ul>
+              <li data-i18n="section3-item1">Always use saved messages for faster and standardized replies.</li>
+              <li data-i18n="section3-item2">Update saved replies immediately when a product price changes.</li>
+              <li data-i18n="section3-item3">Add new saved messages for frequently asked questions not already listed.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section4-title">Replying to Customer Messages</span>
+            <ul>
+              <li data-i18n="section4-item1">Respond to both images and text when customers send product screenshots or mention items verbally.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section5-title">Delivery Charges Reminder</span>
+            <ul>
+              <li data-i18n="section5-item1">After replying with product prices, always follow up by sending the standard delivery charge information.</li>
+            </ul>
+          </li>
+          
+          <li class="list-group-item">
+            <span data-i18n="section6-title">Order Confirmation</span>
+            <ul>
+              <li data-i18n="section6-item1">When a customer asks to place an order, calculate and send the Total Bill (product + delivery charges).</li>
+              <li data-i18n="section6-item2">Once the customer confirms, reply with the saved message "Confirm Order."</li>
+              <li data-i18n="section6-item3">If there's no response, mark the lead as Follow-up, and send a reminder message later that day.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section7-title">Customer Info Submission</span>
+            <ul>
+              <li data-i18n="section7-item1">When a customer shares their Name, Address, and Phone Number, immediately take a screenshot and send it to the Mindspark WhatsApp Group.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section8-title">Final Lead Status</span>
+            <ul>
+              <li data-i18n="section8-item1" data-i18n-html="true">After a confirmed order: Mark as "Converted, Ordered." (<a href="#" target="_blank" style="color: red; text-decoration: underline;" data-i18n="section8-link">See How to do</a>)</li>
+              <li data-i18n="section8-item2">Tag the message with Today's Date under suggested labels.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section9-title">Unanswered Chats</span>
+            <ul>
+              <li data-i18n="section9-item1">If you need to step away or cannot reply immediately, mark the conversation as Unread so that others can pick it up.</li>
+            </ul>
+          </li>
+          
+          <li class="list-group-item">
+            <span data-i18n="section10-title">Don't Know the Answer?</span>
+            <ul>
+              <li data-i18n="section10-item1">If you're unsure about a query, take a screenshot and send it to the Mindspark Operations group.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section11-title">Avoiding Interruption</span>
+            <ul>
+              <li data-i18n="section11-item1">If another team member is already replying to a customer, do not interrupt the flow.</li>
+              <li data-i18n="section11-item2">If a customer query has been unanswered for 10+ minutes, you may then take over and respond.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section12-title">Inbox Order Entry & Confirmation</span>
+            <ul>
+              <li data-i18n="section12-item1">If an order is confirmed in Messenger or Instagram inbox, create a visible order message showing the exact product list and total amount in BDT.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <span data-i18n="section13-title">Website Order Confirmation</span>
+            <ul>
+              <li data-i18n="section13-item1">For website orders, call the customer between 3:30 PM and 5:00 PM to confirm.</li>
+              <li data-i18n="section13-item2">On call, repeat the ordered items, address, and total bill.</li>
+              <li data-i18n="section13-item3">Let the customer know the estimated delivery time, and offer any additional help or information they might ask for.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <hr class="my-4">
+
+        <h4 class="mb-3" data-i18n="faq-title">Canned Responses / FAQ</h4>
+        <div class="faq-section">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong data-i18n="faq-greeting-title">Initial Greeting</strong>
+              <div class="faq-answer" data-i18n="faq-greeting-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-price-query-title">Price Inquiry</strong>
+              <p class="faq-question" data-i18n="faq-price-query-q"></p>
+              <div class="faq-answer" data-i18n="faq-price-query-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-delivery-charge-title">Delivery Charges & Time</strong>
+              <p class="faq-question" data-i18n="faq-delivery-charge-q"></p>
+              <div class="faq-answer" data-i18n-html="true" data-i18n="faq-delivery-charge-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-order-process-title">How to Order</strong>
+              <p class="faq-question" data-i18n="faq-order-process-q"></p>
+              <div class="faq-answer" data-i18n="faq-order-process-ans"></div>
+            </li>
+             <li class="list-group-item">
+              <strong data-i18n="faq-order-confirm-title">Order Confirmation & Checking</strong>
+              <p class="faq-question" data-i18n="faq-order-confirm-q"></p>
+              <div class="faq-answer" data-i18n-html="true" data-i18n="faq-order-confirm-ans"></div>
+            </li>
+             <li class="list-group-item">
+              <strong data-i18n="faq-high-price-title">Complaint about High Prices</strong>
+              <p class="faq-question" data-i18n="faq-high-price-q"></p>
+              <div class="faq-answer" data-i18n="faq-high-price-ans"></div>
+            </li>
+             <li class="list-group-item">
+              <strong data-i18n="faq-discount-title">Discount Inquiry</strong>
+              <p class="faq-question" data-i18n="faq-discount-q"></p>
+              <div class="faq-answer" data-i18n="faq-discount-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-payment-delivery-title">Payment & Delivery Process</strong>
+              <p class="faq-question" data-i18n="faq-payment-delivery-q"></p>
+              <div class="faq-answer" data-i18n="faq-payment-delivery-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-bkash-title">bKash Payment</strong>
+              <p class="faq-question" data-i18n="faq-bkash-q"></p>
+              <div class="faq-answer" data-i18n="faq-bkash-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-bank-title">Bank Payment</strong>
+              <p class="faq-question" data-i18n="faq-bank-q"></p>
+              <div class="faq-answer" data-i18n-html="true" data-i18n="faq-bank-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-preorder-title">Pre-orders</strong>
+              <p class="faq-question" data-i18n="faq-preorder-q"></p>
+              <div class="faq-answer" data-i18n="faq-preorder-ans"></div>
+            </li>
+             <li class="list-group-item">
+              <strong data-i18n="faq-product-origin-title">Product Origin & Quality</strong>
+              <p class="faq-question" data-i18n="faq-product-origin-q"></p>
+              <div class="faq-answer" data-i18n="faq-product-origin-ans"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-showroom-title">Showroom Inquiry</strong>
+              <p class="faq-question" data-i18n="faq-showroom-q"></p>
+              <div class="faq-answer" data-i18n="faq-showroom-ans"></div>
+            </li>
+            <li class="list-group-item">
+                <strong data-i18n="faq-age-toys-title">Toys by Age Group</strong>
+                <div class="faq-answer" data-i18n-html="true" data-i18n="faq-age-toys-ans"></div>
+            </li>
+             <li class="list-group-item">
+              <strong data-i18n="faq-misc-title">Miscellaneous</strong>
+                <p class="faq-question mt-2" data-i18n="faq-misc-q1"></p>
+                <div class="faq-answer" data-i18n="faq-misc-ans1"></div>
+                <p class="faq-question mt-2" data-i18n="faq-misc-q2"></p>
+                <div class="faq-answer" data-i18n="faq-misc-ans2"></div>
+                <p class="faq-question mt-2" data-i18n="faq-misc-q3"></p>
+                <div class="faq-answer" data-i18n="faq-misc-ans3"></div>
+            </li>
+            <li class="list-group-item">
+              <strong data-i18n="faq-closing-title">Closing & Post-Delivery</strong>
+                <div class="faq-answer mb-2" data-i18n="faq-closing-ans1"></div>
+                 <div class="faq-answer" data-i18n="faq-closing-ans2"></div>
+            </li>
+             <li class="list-group-item">
+              <strong data-i18n="faq-disclaimer-title">Important Disclaimer</strong>
+              <div class="faq-answer" data-i18n="faq-disclaimer-ans"></div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   
-  <div class="progress-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
-  
-  <div class="card-body" id="pageContent">
-    <h4 class="mb-3" data-i18n="sop-title">Standard Operating Procedure</h4>
-    <ol class="list-group list-group-flush">
-      <li class="list-group-item">
-        <span data-i18n="section1-title">Product Pricing Requests</span>
-        <ul>
-          <li data-i18n="section1-item1" data-i18n-html="true">If a customer asks for the prices of multiple toys or "all toys," politely direct them to the website: <a href="https://mindsparkbd.com/shop/" target="_blank">Mindspark</a></li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section2-title">Lead Qualification</span>
-        <ul>
-          <li data-i18n="section2-item1">If a customer asks any questions after getting the price (e.g., color, size, delivery, etc.), mark the lead as "Qualified."</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section3-title">Saved Message Usage</span>
-        <ul>
-          <li data-i18n="section3-item1">Always use saved messages for faster and standardized replies.</li>
-          <li data-i18n="section3-item2">Update saved replies immediately when a product price changes.</li>
-          <li data-i18n="section3-item3">Add new saved messages for frequently asked questions not already listed.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section4-title">Replying to Customer Messages</span>
-        <ul>
-          <li data-i18n="section4-item1">Respond to both images and text when customers send product screenshots or mention items verbally.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section5-title">Delivery Charges Reminder</span>
-        <ul>
-          <li data-i18n="section5-item1">After replying with product prices, always follow up by sending the standard delivery charge information.</li>
-        </ul>
-      </li>
+  <script>
+    // Translation data
+    const translations = {
+      en: {
+        "page-title": "📞 Customer Service",
+        "service-title": "📞 Customer Service",
+        "reading-time-text": "~5 min read",
+        "home-button": "← Home",
+        "sop-title": "Standard Operating Procedure",
+        "section1-title": "Product Pricing Requests",
+        "section1-item1": "If a customer asks for the prices of multiple toys or \"all toys,\" politely direct them to the website: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">Mindspark</a>",
+        "section2-title": "Lead Qualification",
+        "section2-item1": "If a customer asks any questions after getting the price (e.g., color, size, delivery, etc.), mark the lead as \"Qualified.\"",
+        "section3-title": "Saved Message Usage",
+        "section3-item1": "Always use saved messages for faster and standardized replies.",
+        "section3-item2": "Update saved replies immediately when a product price changes.",
+        "section3-item3": "Add new saved messages for frequently asked questions not already listed.",
+        "section4-title": "Replying to Customer Messages",
+        "section4-item1": "Respond to both images and text when customers send product screenshots or mention items verbally.",
+        "section5-title": "Delivery Charges Reminder",
+        "section5-item1": "After replying with product prices, always follow up by sending the standard delivery charge information.",
+        "section6-title": "Order Confirmation",
+        "section6-item1": "When a customer asks to place an order, calculate and send the Total Bill (product + delivery charges).",
+        "section6-item2": "Once the customer confirms, reply with the saved message \"Confirm Order.\"",
+        "section6-item3": "If there's no response, mark the lead as Follow-up, and send a reminder message later that day.",
+        "section7-title": "Customer Info Submission",
+        "section7-item1": "When a customer shares their Name, Address, and Phone Number, immediately take a screenshot and send it to the Mindspark WhatsApp Group.",
+        "section8-title": "Final Lead Status",
+        "section8-item1": "After a confirmed order: Mark as \"Converted, Ordered.\" (<a href=\"#\" target=\"_blank\" style=\"color: red; text-decoration: underline;\">See How to do</a>)",
+        "section8-link": "See How to do",
+        "section8-item2": "Tag the message with Today's Date under suggested labels.",
+        "section9-title": "Unanswered Chats",
+        "section9-item1": "If you need to step away or cannot reply immediately, mark the conversation as Unread so that others can pick it up.",
+        "section10-title": "Don't Know the Answer?",
+        "section10-item1": "If you're unsure about a query, take a screenshot and send it to the Mindspark Operations group.",
+        "section11-title": "Avoiding Interruption",
+        "section11-item1": "If another team member is already replying to a customer, do not interrupt the flow.",
+        "section11-item2": "If a customer query has been unanswered for 10+ minutes, you may then take over and respond.",
+        "section12-title": "Inbox Order Entry & Confirmation",
+        "section12-item1": "If an order is confirmed in Messenger or Instagram inbox, create a visible order message showing the exact product list and total amount in BDT.",
+        "section13-title": "Website Order Confirmation",
+        "section13-item1": "For website orders, call the customer between 3:30 PM and 5:00 PM to confirm.",
+        "section13-item2": "On call, repeat the ordered items, address, and total bill.",
+        "section13-item3": "Let the customer know the estimated delivery time, and offer any additional help or information they might ask for.",
+        "faq-title": "Canned Responses / FAQ",
+        "faq-greeting-title": "Initial Greeting",
+        "faq-greeting-ans": "Hello! Welcome to Mindspark. We focus on Early Childhood Development (ECD) for babies. We sell ECD-appropriate toys in our store and create parenting content on our page. How can we assist you today?",
+        "faq-price-query-title": "Price Inquiry",
+        "faq-price-query-q": "'How much is the price?'",
+        "faq-price-query-ans": "Please share the name or picture of your desired product... we will inform you of the price shortly. 😊",
+        "faq-delivery-charge-title": "Delivery Charges & Time",
+        "faq-delivery-charge-q": "'What is the delivery charge?', 'How long does delivery take?'",
+        "faq-delivery-charge-ans": "Delivery charge is 70 Taka inside Dhaka city, and 130 Taka outside Dhaka. <br> Delivery is free for orders over 2,500 Taka placed directly on our website. <br> Usually, delivery within Dhaka metro area is done the next day, but it can take up to two days. <br> Outside Dhaka, delivery usually takes 2-3 days.",
+        "faq-order-process-title": "How to Order",
+        "faq-order-process-q": "'How do I place an order?', 'Can I order via inbox?', 'Can I order from the website?'",
+        "faq-order-process-ans": "You can place an order directly on our website, or to confirm your order in the inbox, please send your name, phone number, and detailed address. Thank you!",
+        "faq-order-confirm-title": "Order Confirmation & Checking",
+        "faq-order-confirm-q": "'Has my order been confirmed?', 'Can I check the product during delivery?'",
+        "faq-order-confirm-ans": "Your order has been confirmed. Thank you for your trust in Mindspark. <br> Please check the product in front of the delivery person.",
+        "faq-high-price-title": "Complaint about High Prices",
+        "faq-high-price-q": "'The price is too high', 'Why are your products so expensive?'",
+        "faq-high-price-ans": "Thank you for your feedback. We are committed to helping parents provide a beautiful and smart childhood for their children within their means. We carefully select high-quality, durable, and safe toys. We try to keep our prices as low as possible. We also create parenting content alongside selling toys. Stay with us!",
+        "faq-discount-title": "Discount Inquiry",
+        "faq-discount-q": "'Can you reduce the price?', 'Is there any discount?'",
+        "faq-discount-ans": "Sorry, we have a fixed price policy. However, we offer free delivery on orders of 2500 Taka or more.",
+        "faq-payment-delivery-title": "Payment & Delivery Process",
+        "faq-payment-delivery-q": "'What is your delivery process?', 'Do you have cash on delivery?', 'Do I have to pay in advance?'",
+        "faq-payment-delivery-ans": "We use the Pathao delivery system for cash on delivery parcels.",
+        "faq-bkash-title": "bKash Payment",
+        "faq-bkash-q": "'Can you give me the bKash number?', 'How do I pay via bKash?'",
+        "faq-bkash-ans": "For advance payment, you can go to the 'Payment' option in bKash and pay the total bill amount to 01796682421. In that case, please send us the transaction ID or a screenshot in our inbox.",
+        "faq-bank-title": "Bank Payment",
+        "faq-bank-q": "'Can I pay via bank transfer?', 'Are there other options for advance payment besides bKash?'",
+        "faq-bank-ans": "Bank Payment Details (Please send us transaction ID or Reference no)<br>ACC Name: Brothers Enterprise<br>ACC number: 1301000376849<br>Branch Name: Mirpur Branch (0074)<br>Bank Name: Mutual Trust Bank",
+        "faq-preorder-title": "Pre-orders",
+        "faq-preorder-q": "'Do we take pre-orders?'",
+        "faq-preorder-ans": "Yes, we take pre-orders. But it depends. If the product is in our catalogue and we are not planning to discontinue it, we take pre-orders. For pre-orders of regular items, we don't ask for any advance payment. If someone wants to buy a product that we are planning to discontinue and is out of stock, you must consult the Management before replying to the customer. If a customer wants to book an in-stock product for a later date, do we allow it? No. We only allow this if the customer pays in advance.",
+        "faq-product-origin-title": "Product Origin & Quality",
+        "faq-product-origin-q": "'Where are your products from?', 'Are your products imported?'",
+        "faq-product-origin-ans": "Most of our toys are of international standard, US and European grade quality, although they are manufactured in China. We source some products as OME (Original Manufacturer Equipment) directly from world-class factories. Quality and safety are our biggest priorities, so each product is handled accordingly.",
+        "faq-showroom-title": "Showroom Inquiry",
+        "faq-showroom-q": "'Where is your showroom?'",
+        "faq-showroom-ans": "We do not have a showroom, but there is an opportunity to see the toys in person by visiting our office in Gulshan during office hours. However, this is not possible every day, so we kindly request you to make an appointment in advance.",
+        "faq-age-toys-title": "Toys by Age Group",
+        "faq-age-toys-ans": "<b>0-6 Months:</b> <a href='https://www.facebook.com/share/p/1P449xRjW7/' target='_blank'>Click Here</a><br><b>12-18 Months:</b> <a href='https://www.facebook.com/share/p/18ptrJufTp/' target='_blank'>Click Here</a><br><b>18-24 Months:</b> <a href='https://www.facebook.com/share/p/1FLdtFkG7w/' target='_blank'>Click Here</a><br><b>2-3 Years:</b> <a href='https://www.facebook.com/share/p/1DWjATDVce/' target='_blank'>Click Here</a><br><b>3-5 Years:</b> <a href='https://www.facebook.com/share/p/1Aikivbw8L/' target='_blank'>Click Here</a><br><b>5+ Years:</b> <a href='https://www.facebook.com/share/p/16e9nozL9V/' target='_blank'>Click Here</a>",
+        "faq-misc-title": "Miscellaneous",
+        "faq-misc-q1": "Customer: 'Please give me a moment to help.'",
+        "faq-misc-ans1": "Reply: 'Please give us a moment.'",
+        "faq-misc-q2": "Customer: 'I've ordered from your website, please send good products.'",
+        "faq-misc-ans2": "Reply: 'Your order has been confirmed. Thank you for your trust in Mindspark.'",
+        "faq-misc-q3": "Customer: 'Can you provide a video or real pictures of product 'X'?'",
+        "faq-misc-ans3": "Reply: 'Please allow us some time to share the video/picture.'",
+        "faq-closing-title": "Closing & Post-Delivery",
+        "faq-closing-ans1": "When customer says 'I have received the products': 'If your baby likes our toys, we would be grateful for a review. As new entrepreneurs, this is very encouraging for us.'",
+        "faq-closing-ans2": "Standard closing message: 'Love for your baby 🧡 Happy Parenting 👨‍👩‍👧‍👦'",
+        "faq-disclaimer-title": "Important Disclaimer",
+        "faq-disclaimer-ans": "For any health-related advice for your baby, please consult a pediatrician. The Mindspark team creates general content from the research and writings of various pediatricians and child development specialists. If you notice anything unusual or have suspicions about your baby, take them directly to a pediatrician. Do not rely on advice from others."
+      },
+      bn: {
+        "page-title": "📞 গ্রাহক সেবা",
+        "service-title": "📞 গ্রাহক সেবা",
+        "reading-time-text": "~5 মিনিট পড়ুন",
+        "home-button": "← হোম",
+        "sop-title": "স্ট্যান্ডার্ড অপারেটিং পদ্ধতি",
+        "section1-title": "পণ্যের মূল্য অনুরোধ",
+        "section1-item1": "যদি কোনো গ্রাহক একাধিক খেলনা বা \"সব খেলনা\" এর দাম জানতে চান, তাদের বিনীতভাবে ওয়েবসাইটে দাম দেখতে অনুরোধ করুন: <a href=\"https://mindsparkbd.com/shop/\" target=\"_blank\">মাইন্ডস্পার্ক</a>",
+        "section2-title": "লিড যোগ্যতা",
+        "section2-item1": "যদি কোনো গ্রাহক দাম পাওয়ার পরে কোনো প্রশ্ন করেন (যেমন রঙ, আকার, ডেলিভারি ইত্যাদি), লিডটিকে \"যোগ্য\" হিসাবে চিহ্নিত করুন।",
+        "section3-title": "সংরক্ষিত বার্তা ব্যবহার",
+        "section3-item1": "দ্রুত এবং আদর্শ উত্তরের জন্য সর্বদা সংরক্ষিত বার্তা ব্যবহার করুন।",
+        "section3-item2": "কোনো পণ্যের দাম পরিবর্তন হলে অবিলম্বে সংরক্ষিত উত্তরগুলি আপডেট করুন।",
+        "section3-item3": "ইতিমধ্যে তালিকাভুক্ত নয় এমন প্রায়শই জিজ্ঞাসিত প্রশ্নগুলির জন্য নতুন সংরক্ষিত বার্তা যোগ করুন।",
+        "section4-title": "গ্রাহকের বার্তার উত্তর দেওয়া",
+        "section4-item1": "গ্রাহকরা যখন পণ্যের স্ক্রিনশট পাঠান বা মৌখিকভাবে আইটেম উল্লেখ করেন, তখন উভয় চিত্র এবং পাঠ্যের উত্তর দিন।",
+        "section5-title": "ডেলিভারি চার্জ স্মরণীকরণ",
+        "section5-item1": "পণ্যের দাম দিয়ে উত্তর দেওয়ার পরে, সর্বদা স্ট্যান্ডার্ড ডেলিভারি চার্জ তথ্য পাঠিয়ে অনুসরণ করুন।",
+        "section6-title": "অর্ডার নিশ্চিতকরণ",
+        "section6-item1": "যখন কোনো গ্রাহক অর্ডার দিতে বলেন, মোট বিল (পণ্য + ডেলিভারি চার্জ) গণনা করুন এবং পাঠান।",
+        "section6-item2": "গ্রাহক নিশ্চিত করার পরে, \"অর্ডার নিশ্চিত করুন\" সংরক্ষিত বার্তা দিয়ে উত্তর দিন।",
+        "section6-item3": "যদি কোনো প্রতিক্রিয়া না থাকে, লিডটিকে ফলো-আপ হিসাবে চিহ্নিত করুন, এবং সেই দিন পরে একটি স্মরণীকরণ বার্তা পাঠান।",
+        "section7-title": "গ্রাহকের তথ্য জমা দেওয়া",
+        "section7-item1": "যখন কোনো গ্রাহক তাদের নাম, ঠিকানা এবং ফোন নম্বর শেয়ার করেন, তখন অবিলম্বে একটি স্ক্রিনশট নিন এবং মাইন্ডস্পার্ক হোয়াটসঅ্যাপ গ্রুপে পাঠান।",
+        "section8-title": "চূড়ান্ত লিড অবস্থা",
+        "section8-item1": "নিশ্চিত অর্ডারের পরে: \"রূপান্তরিত, অর্ডার করা হয়েছে\" হিসাবে চিহ্নিত করুন। (<a href=\"#\" target=\"_blank\" style=\"color: red; text-decoration: underline;\">কিভাবে করবেন দেখুন</a>)",
+        "section8-link": "কিভাবে করবেন দেখুন",
+        "section8-item2": "প্রস্তাবিত লেবেলের অধীনে বার্তাটি আজকের তারিখ দিয়ে ট্যাগ করুন।",
+        "section9-title": "অনুত্তরিত চ্যাট",
+        "section9-item1": "যদি আপনাকে সরে যেতে হয় বা অবিলম্বে উত্তর দিতে না পারেন, তবে কথোপকথনটি অপঠিত হিসাবে চিহ্নিত করুন যাতে অন্যরা তা নিতে পারে।",
+        "section10-title": "উত্তর জানেন না?",
+        "section10-item1": "যদি আপনি কোনো প্রশ্নের বিষয়ে অনিশ্চিত হন, একটি স্ক্রিনশট নিন এবং মাইন্ডস্পার্ক অপারেশন গ্রুপে পাঠান।",
+        "section11-title": "বাধা এড়ানো",
+        "section11-item1": "যদি অন্য কোনো টিম সদস্য ইতিমধ্যে কোনো গ্রাহকের উত্তর দিচ্ছেন, তবে প্রবাহে বাধা দেবেন না।",
+        "section11-item2": "যদি কোনো গ্রাহকের প্রশ্ন ১০+ মিনিটের জন্য অনুত্তরিত থাকে, তবে আপনি তখন নিয়ন্ত্রণ নিতে এবং উত্তর দিতে পারেন।",
+        "section12-title": "ইনবক্স অর্ডার এন্ট্রি এবং নিশ্চিতকরণ",
+        "section12-item1": "যদি মেসেঞ্জার বা ইনস্টাগ্রাম ইনবক্সে কোনো অর্ডার নিশ্চিত হয়, সঠিক পণ্য তালিকা এবং বিডিটিতে মোট পরিমাণ দেখানো একটি দৃশ্যমান অর্ডার বার্তা তৈরি করুন।",
+        "section13-title": "ওয়েবসাইট অর্ডার নিশ্চিতকরণ",
+        "section13-item1": "ওয়েবসাইট অর্ডারের জন্য, নিশ্চিত করতে বিকাল ৩:৩০ টা থেকে ৫:০০ টার মধ্যে গ্রাহককে কল করুন।",
+        "section13-item2": "কলে, অর্ডার করা আইটেম, ঠিকানা এবং মোট বিল পুনরাবৃত্তি করুন।",
+        "section13-item3": "গ্রাহককে অনুমানিত ডেলিভারি সময় জানান, এবং তারা যে কোনো অতিরিক্ত সহায়তা বা তথ্য জিজ্ঞাসা করতে পারে তা অফার করুন।",
+        "faq-title": "প্রস্তুত উত্তর / সাধারণ জিজ্ঞাসা",
+        "faq-greeting-title": "প্রাথমিক সম্ভাষণ",
+        "faq-greeting-ans": "হ্যালো! Mindspark-এ স্বাগতম। আমরা বাবুদের Early Childhood Development নিয়ে কাজ করি। আমাদের স্টোরে ECD-এর উপযোগী খেলনা বিক্রয় এবং আমাদের পেইজে প্যারেন্টিং কন্টেন্ট তৈরি করি। আপনাকে কীভাবে সহায়তা করতে পারি?",
+        "faq-price-query-title": "মূল্য জিজ্ঞাসা",
+        "faq-price-query-q": "'প্রাইস কত?'",
+        "faq-price-query-ans": "আপনার পছন্দের প্রোডাক্টটির নাম বা ছবি শেয়ার করুন... আমরা দ্রুত দাম জানিয়ে দিব। 😊",
+        "faq-delivery-charge-title": "ডেলিভারি চার্জ ও সময়",
+        "faq-delivery-charge-q": "'ডেলিভারি চার্জ কত?', 'ডেলিভারি পেতে কতদিন লাগে?'",
+        "faq-delivery-charge-ans": "ঢাকা সিটির ভিতরে ডেলিভারি চার্জ ৭০ টাকা, ঢাকার বাইরে ১৩০ টাকা। <br> সরাসরি আমাদের ওয়েবসাইট থেকে ২,৫০০ টাকার উপর অর্ডার করলে ডেলিভারি চার্জ ফ্রি। <br> সাধারণত, ঢাকা মেট্রো এলাকায় ডেলিভারি পরদিন হয়, তবে দুইদিন পর্যন্ত সময় লাগতে পারে। <br> ঢাকার বাইরে ডেলিভারিতে সাধারণত ২-৩ দিন সময় লাগে।",
+        "faq-order-process-title": "অর্ডার করার পদ্ধতি",
+        "faq-order-process-q": "'অর্ডার করবো কিভাবে?', 'ইনবক্সে অর্ডার করা যাবে কি?', 'ওয়েবসাইট থেকে অর্ডার করা যায়?'",
+        "faq-order-process-ans": "আপনি চাইলে সরাসরি ওয়েবসাইটে অর্ডার করতে পারবেন অথবা ইনবক্সে অর্ডার কনফার্ম করতে আপনার নাম, ফোন নাম্বার, এবং বিস্তারিত ঠিকানা পাঠিয়ে দিন। ধন্যবাদ!",
+        "faq-order-confirm-title": "অর্ডার কনফার্মেশন ও চেকিং",
+        "faq-order-confirm-q": "'আমার অর্ডার কনফার্ম হয়েছে কি?', 'প্রোডাক্ট কি ডেলিভারির সময় চেক করতে পারবো?'",
+        "faq-order-confirm-ans": "আপনার অর্ডারটি কনফার্ম করা হয়েছে। মাইন্ডস্পার্কের উপর আস্থা রাখার জন্য ধন্যবাদ। <br> দয়া করে ডেলিভারিম্যানের সামনে প্রোডাক্ট চেক করে নিবেন।",
+        "faq-high-price-title": "বেশি দাম সংক্রান্ত অভিযোগ",
+        "faq-high-price-q": "'অনেক বেশি দাম', 'আপনাদের পন্যের এত দাম কেন?'",
+        "faq-high-price-ans": "আপনার মতামতের জন্য ধন্যবাদ। মা-বাবা যেন সাধ্যের মধ্যে সন্তানকে সুন্দর ও স্মার্ট শৈশব দিতে পারে, তার জন্য আমরা প্রতিজ্ঞাবদ্ধ। বাবুদের জন্য মানসম্মত, টেকসই ও নিরাপদ খেলনা বাছাই করে আমরা আপনাদের কাছে পৌঁছে দিচ্ছি। আমাদের সাধ্যমত সর্বনিম্ন দাম রাখার চেষ্টা করছি। আমরা খেলনার বিক্রির পাশাপাশি প্যারেন্টিং কন্টেন্টও করছি। আমাদের সাথে থাকুন।",
+        "faq-discount-title": "ডিসকাউন্ট জিজ্ঞাসা",
+        "faq-discount-q": "'দাম একটু কম রাখা যাবে?', 'কোনো ডিসকাউন্ট আছে কি?'",
+        "faq-discount-ans": "দুঃখিত, আমাদের ফিক্সড প্রাইস পলিসি। তবে ২৫০০ টাকা বা বেশি অর্ডারে ফ্রি ডেলিভারি অপশন আছে।",
+        "faq-payment-delivery-title": "পেমেন্ট ও ডেলিভারি প্রক্রিয়া",
+        "faq-payment-delivery-q": "'আপনাদের ডেলিভারি প্রসেস কি?', 'ক্যাশ অন ডেলিভারি আছে কি?', 'অগ্রিম পেমেন্ট করতে হবে কি?'",
+        "faq-payment-delivery-ans": "আমরা পাঠাও ডেলিভারি সিস্টেমে ক্যাশ অন ডেলিভারি পার্সেল দিয়ে থাকি।",
+        "faq-bkash-title": "বিকাশ পেমেন্ট",
+        "faq-bkash-q": "'আপনাদের বিকাশ নাম্বার দিন', 'বিকাশে পেমেন্ট করতে হবে কিভাবে?'",
+        "faq-bkash-ans": "অগ্রিম পরিশোধের জন্য বিকাশের Payment অপশনে গিয়ে 01796682421 নাম্বারে মোট বিলের সমপরিমাণ টাকা পরিশোধ করতে পারেন। সেক্ষেত্রে দয়া করে আমাদের ইনবক্সে ট্রানজেকশন আইডি বা স্ক্রিনশট দিবেন।",
+        "faq-bank-title": "ব্যাংক পেমেন্ট",
+        "faq-bank-q": "'ব্যাংক পেমেন্ট করা যাবে কি?', 'অগ্রিম পেমেন্টের জন্য বিকাশ ছাড়া অন্য কোন অপশন আছে?'",
+        "faq-bank-ans": "Bank Payment Details (Please send us transaction ID or Reference no)<br>ACC Name: Brothers Enterprise<br>ACC number: 1301000376849<br>Branch Name: Mirpur Branch (0074)<br>Bank Name: Mutual Trust Bank",
+        "faq-preorder-title": "প্রি-অর্ডার",
+        "faq-preorder-q": "'আমরা কি প্রি-অর্ডার নিই?'",
+        "faq-preorder-ans": "হ্যাঁ, আমরা প্রি-অর্ডার নিই। তবে এটি নির্ভর করে। যদি পণ্যটি আমাদের ক্যাটালগে থাকে এবং আমরা এটি বন্ধ করার পরিকল্পনা না করি, তবে আমরা প্রি-অর্ডার গ্রহণ করি। নিয়মিত আইটেমগুলির প্রি-অর্ডারের জন্য, আমরা কোনো অগ্রিম অর্থপ্রদান চাই না। যদি কেউ এমন কোনো পণ্য কিনতে চান যা আমরা বন্ধ করে দেওয়ার পরিকল্পনা করছি এবং সেটি স্টক আউট হয়ে গেছে, তবে গ্রাহককে উত্তর দেওয়ার আগে আপনাকে অবশ্যই ম্যানেজমেন্টের সাথে পরামর্শ করতে হবে। যদি কোনো গ্রাহক স্টকে থাকা কোনো পণ্য ভবিষ্যতের কোনো তারিখের জন্য বুক করতে চান, তাহলে কি আমরা অনুমতি দিই? না। আমরা শুধুমাত্র গ্রাহক অগ্রিম অর্থ প্রদান করলেই এটি অনুমোদন করি।",
+        "faq-product-origin-title": "পণ্যের উৎস ও গুণমান",
+        "faq-product-origin-q": "'আপনাদের পণ্যগুলো কোথা থেকে আনা?', 'আপনাদের কি এক্সপোর্ট করা পণ্য?'",
+        "faq-product-origin-ans": "আমাদের বেশিরভাগ খেলনাই আন্তর্জাতিক মানসম্পন্ন, ইউএস ও ইউরোপিয়ান গ্রেড কোয়ালিটির হয়ে থাকে, যদিও এগুলোর উৎপাদন চায়নায় হয়। আমরা কিছু প্রোডাক্ট OME (Original Manufacturer Equipment) হিসেবে সরাসরি বিশ্বমানের কারখানা থেকে নিয়ে থাকি। কোয়ালিটি ও সেফটির দিকটা আমাদের সবচেয়ে বড় অগ্রাধিকার, তাই প্রত্যেকটা পণ্যে সেই অনুযায়ী যত্ন নেওয়া হয়।",
+        "faq-showroom-title": "শোরুম জিজ্ঞাসা",
+        "faq-showroom-q": "'আপনাদের শোরুম কোথায়?'",
+        "faq-showroom-ans": "আমাদের কোনো শোরুম নেই, তবে অফিস টাইমে গুলশানে অবস্থিত আমাদের অফিসে এসে খেলনাগুলো সরাসরি দেখার সুযোগ রয়েছে। তবে, এটি প্রতিদিন সম্ভব নয়, তাই অনুগ্রহ করে পূর্বেই অ্যাপয়েন্টমেন্ট নিয়ে আসার জন্য বিনীতভাবে অনুরোধ করছি।",
+        "faq-age-toys-title": "বয়স অনুযায়ী খেলনা",
+        "faq-age-toys-ans": "<b>০-৬ মাস:</b> <a href='https://www.facebook.com/share/p/1P449xRjW7/' target='_blank'>এখানে ক্লিক করুন</a><br><b>১২-১৮ মাস:</b> <a href='https://www.facebook.com/share/p/18ptrJufTp/' target='_blank'>এখানে ক্লিক করুন</a><br><b>১৮-২৪ মাস:</b> <a href='https://www.facebook.com/share/p/1FLdtFkG7w/' target='_blank'>এখানে ক্লিক করুন</a><br><b>২-৩ বছর:</b> <a href='https://www.facebook.com/share/p/1DWjATDVce/' target='_blank'>এখানে ক্লিক করুন</a><br><b>৩-৫ বছর:</b> <a href='https://www.facebook.com/share/p/1Aikivbw8L/' target='_blank'>এখানে ক্লিক করুন</a><br><b>৫+ বছর:</b> <a href='https://www.facebook.com/share/p/16e9nozL9V/' target='_blank'>এখানে ক্লিক করুন</a>",
+        "faq-misc-title": "বিবিধ",
+        "faq-misc-q1": "গ্রাহক: 'একটু সময় দিয়ে সাহায্য করবেন প্লিজ'",
+        "faq-misc-ans1": "উত্তর: 'Please give us a moment'",
+        "faq-misc-q2": "গ্রাহক: 'আমি আপনাদের ওয়েবসাইটে অর্ডার করেছি দয়া করে ভালো প্রোডাক্ট দিবেন'",
+        "faq-misc-ans2": "উত্তর: 'আপনার অর্ডারটি কনফার্ম করা হয়েছে। মাইন্ডস্পার্কের উপর আস্থা রাখার জন্য ধন্যবাদ।'",
+        "faq-misc-q3": "গ্রাহক: '‘ক’ পন্যের ভিডিও দিন, রিয়েল ছবি দিন'",
+        "faq-misc-ans3": "উত্তর: 'ভিডিও / ছবিটি শেয়ারের জন্য অনুগ্রহপূর্বক সময় দিয়ে সহযোগিতা করুন।'",
+        "faq-closing-title": "সমাপ্তি এবং ডেলিভারি পরবর্তী",
+        "faq-closing-ans1": "গ্রাহক যখন বলেন 'প্রোডাক্ট গুলো পেয়েছি': 'আপু, বাবু আমাদের খেলনাগুলো পছন্দ করলে একটা রিভিউ দেওয়ার অনুরোধ রইলো। নতুন উদ্যোক্তা হিসেবে এটা আমাদের জন্য খুবই উৎসাহব্যঞ্জক।'",
+        "faq-closing-ans2": "স্ট্যান্ডার্ড বিদায়ী বার্তা: 'আপনার বাবুর জন্য ভালোবাসা 🧡 Happy Parenting 👨‍👩‍👧‍👦'",
+        "faq-disclaimer-title": "গুরুত্বপূর্ণ বিজ্ঞপ্তি",
+        "faq-disclaimer-ans": "বাবুর স্বাস্থ্যবিষয়ক যেকোনো পরামর্শ অবশ্যই শিশু বিশেষজ্ঞের কাছ থেকে নিবেন। মাইন্ডস্পার্ক টিম বিভিন্ন শিশু বিশেষজ্ঞ এবং চাইল্ড ডেভেলপমেন্ট স্পেশালিস্টদের গবেষণা ও লেখা থেকে জেনারেল কন্টেন্ট তৈরি করে। আপনার বাবুর অস্বাভাবিক কিছু দেখলে বা সন্দেহ করলে সরাসরি শিশু বিশেষজ্ঞের কাছে নিয়ে যান। অন্য কারও পরামর্শে নির্ভর করবেন না।"
+      }
+    };
+    
+    // Language management
+    let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+    const htmlTag = document.documentElement;
+    const bodyTag = document.body;
+    
+    // Wait for DOM to be fully loaded before initializing
+    document.addEventListener('DOMContentLoaded', function() {
+      const langToggle = document.getElementById('langToggle');
+      const langCurrent = langToggle.querySelector('.lang-current');
+      const langOther = langToggle.querySelector('.lang-other');
       
-      <li class="list-group-item">
-        <span data-i18n="section6-title">Order Confirmation</span>
-        <ul>
-          <li data-i18n="section6-item1">When a customer asks to place an order, calculate and send the Total Bill (product + delivery charges).</li>
-          <li data-i18n="section6-item2">Once the customer confirms, reply with the saved message "Confirm Order."</li>
-          <li data-i18n="section6-item3">If there's no response, mark the lead as Follow-up, and send a reminder message later that day.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section7-title">Customer Info Submission</span>
-        <ul>
-          <li data-i18n="section7-item1">When a customer shares their Name, Address, and Phone Number, immediately take a screenshot and send it to the Mindspark WhatsApp Group.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section8-title">Final Lead Status</span>
-        <ul>
-          <li data-i18n="section8-item1" data-i18n-html="true">After a confirmed order: Mark as "Converted, Ordered." (<a href="#" target="_blank" style="color: red; text-decoration: underline;" data-i18n="section8-link">See How to do</a>)</li>
-          <li data-i18n="section8-item2">Tag the message with Today's Date under suggested labels.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section9-title">Unanswered Chats</span>
-        <ul>
-          <li data-i18n="section9-item1">If you need to step away or cannot reply immediately, mark the conversation as Unread so that others can pick it up.</li>
-        </ul>
-      </li>
+      // Update page content based on selected language
+      function updateLanguage(lang) {
+        // Update HTML lang attribute
+        htmlTag.setAttribute('lang', lang);
+        
+        // Update body class for font switching
+        if (lang === 'bn') {
+          bodyTag.classList.add('lang-bn');
+        } else {
+          bodyTag.classList.remove('lang-bn');
+        }
+        
+        // Update page title
+        const pageTitle = document.querySelector('title');
+        const titleKey = pageTitle.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][titleKey]) {
+          pageTitle.textContent = translations[lang][titleKey];
+        }
+        
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          const isHtml = element.hasAttribute('data-i18n-html');
+          
+          if (translations[lang] && translations[lang][key]) {
+            if (isHtml) {
+              element.innerHTML = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
+          }
+        });
+        
+        // Update toggle button
+        langCurrent.textContent = lang.toUpperCase();
+        langOther.textContent = lang === 'en' ? 'BN' : 'EN';
+        
+        // Store preference
+        localStorage.setItem('preferredLanguage', lang);
+      }
       
-      <li class="list-group-item">
-        <span data-i18n="section10-title">Don't Know the Answer?</span>
-        <ul>
-          <li data-i18n="section10-item1">If you're unsure about a query, take a screenshot and send it to the Mindspark Operations group.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section11-title">Avoiding Interruption</span>
-        <ul>
-          <li data-i18n="section11-item1">If another team member is already replying to a customer, do not interrupt the flow.</li>
-          <li data-i18n="section11-item2">If a customer query has been unanswered for 10+ minutes, you may then take over and respond.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section12-title">Inbox Order Entry & Confirmation</span>
-        <ul>
-          <li data-i18n="section12-item1">If an order is confirmed in Messenger or Instagram inbox, create a visible order message showing the exact product list and total amount in BDT.</li>
-        </ul>
-      </li>
-      <li class="list-group-item">
-        <span data-i18n="section13-title">Website Order Confirmation</span>
-        <ul>
-          <li data-i18n="section13-item1">For website orders, call the customer between 3:30 PM and 5:00 PM to confirm.</li>
-          <li data-i18n="section13-item2">On call, repeat the ordered items, address, and total bill.</li>
-          <li data-i18n="section13-item3">Let the customer know the estimated delivery time, and offer any additional help or information they might ask for.</li>
-        </ul>
-      </li>
-    </ol>
-
-    <hr class="my-4">
-
-    <h4 class="mb-3" data-i18n="faq-title">Canned Responses / FAQ</h4>
-    <div class="faq-section">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <strong data-i18n="faq-greeting-title">Initial Greeting</strong>
-          <div class="faq-answer" data-i18n="faq-greeting-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-price-query-title">Price Inquiry</strong>
-          <p class="faq-question" data-i18n="faq-price-query-q"></p>
-          <div class="faq-answer" data-i18n="faq-price-query-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-delivery-charge-title">Delivery Charges & Time</strong>
-          <p class="faq-question" data-i18n="faq-delivery-charge-q"></p>
-          <div class="faq-answer" data-i18n-html="true" data-i18n="faq-delivery-charge-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-order-process-title">How to Order</strong>
-          <p class="faq-question" data-i18n="faq-order-process-q"></p>
-          <div class="faq-answer" data-i18n="faq-order-process-ans"></div>
-        </li>
-         <li class="list-group-item">
-          <strong data-i18n="faq-order-confirm-title">Order Confirmation & Checking</strong>
-          <p class="faq-question" data-i18n="faq-order-confirm-q"></p>
-          <div class="faq-answer" data-i18n-html="true" data-i18n="faq-order-confirm-ans"></div>
-        </li>
-         <li class="list-group-item">
-          <strong data-i18n="faq-high-price-title">Complaint about High Prices</strong>
-          <p class="faq-question" data-i18n="faq-high-price-q"></p>
-          <div class="faq-answer" data-i18n="faq-high-price-ans"></div>
-        </li>
-         <li class="list-group-item">
-          <strong data-i18n="faq-discount-title">Discount Inquiry</strong>
-          <p class="faq-question" data-i18n="faq-discount-q"></p>
-          <div class="faq-answer" data-i18n="faq-discount-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-payment-delivery-title">Payment & Delivery Process</strong>
-          <p class="faq-question" data-i18n="faq-payment-delivery-q"></p>
-          <div class="faq-answer" data-i18n="faq-payment-delivery-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-bkash-title">bKash Payment</strong>
-          <p class="faq-question" data-i18n="faq-bkash-q"></p>
-          <div class="faq-answer" data-i18n="faq-bkash-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-bank-title">Bank Payment</strong>
-          <p class="faq-question" data-i18n="faq-bank-q"></p>
-          <div class="faq-answer" data-i18n-html="true" data-i18n="faq-bank-ans"></div>
-        </li>
-        <li class="list-group-item">
-            <strong data-i18n="faq-preorder-title">Pre-orders</strong>
-            <p class="faq-question" data-i18n="faq-preorder-q"></p>
-            <div class="faq-answer" data-i18n="faq-preorder-ans"></div>
-        </li>
-         <li class="list-group-item">
-          <strong data-i18n="faq-product-origin-title">Product Origin & Quality</strong>
-          <p class="faq-question" data-i18n="faq-product-origin-q"></p>
-          <div class="faq-answer" data-i18n="faq-product-origin-ans"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-showroom-title">Showroom Inquiry</strong>
-          <p class="faq-question" data-i18n="faq-showroom-q"></p>
-          <div class="faq-answer" data-i18n="faq-showroom-ans"></div>
-        </li>
-        <li class="list-group-item">
-            <strong data-i18n="faq-age-toys-title">Toys by Age Group</strong>
-            <div class="faq-answer" data-i18n-html="true" data-i18n="faq-age-toys-ans"></div>
-        </li>
-         <li class="list-group-item">
-          <strong data-i18n="faq-misc-title">Miscellaneous</strong>
-            <p class="faq-question mt-2" data-i18n="faq-misc-q1"></p>
-            <div class="faq-answer" data-i18n="faq-misc-ans1"></div>
-            <p class="faq-question mt-2" data-i18n="faq-misc-q2"></p>
-            <div class="faq-answer" data-i18n="faq-misc-ans2"></div>
-            <p class="faq-question mt-2" data-i18n="faq-misc-q3"></p>
-            <div class="faq-answer" data-i18n="faq-misc-ans3"></div>
-        </li>
-        <li class="list-group-item">
-          <strong data-i18n="faq-closing-title">Closing & Post-Delivery</strong>
-            <div class="faq-answer mb-2" data-i18n="faq-closing-ans1"></div>
-             <div class="faq-answer" data-i18n="faq-closing-ans2"></div>
-        </li>
-         <li class="list-group-item">
-          <strong data-i18n="faq-disclaimer-title">Important Disclaimer</strong>
-          <div class="faq-answer" data-i18n="faq-disclaimer-ans"></div>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</div>
+      // Initialize language
+      updateLanguage(currentLang);
+      
+      // Toggle language on button click
+      langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'bn' : 'en';
+        updateLanguage(currentLang);
+      });
+    });
+    
+    // Progress bar functionality
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+  </script>
+</body>
+</html>
